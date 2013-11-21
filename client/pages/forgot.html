@@ -1,0 +1,37 @@
+<div class="page forgot-page">
+
+	<section class="page-content">
+
+		<!-- message -->
+		<div class="form-message">
+			<p>Enter the email address associated with your account in order to reset your password.</p>
+		</div>
+
+		<!-- Reset Password Form -->
+		<form>
+			<!-- Email Address -->
+			<div class="form-item">
+
+				<input
+					name="mail"
+					type="email"
+					required
+					placeholder="you@domain.com"
+				>
+			</div>
+
+
+			<!-- Form Action Buttons -->
+			<div class="form-action">
+				<button
+					name="submit"
+					type="button"
+					value="submit"
+					class="form-btn submit"
+					ng-click="$location.path('/forgotconfirm');">submit</button>
+			</div>
+
+		</form>
+
+    </section>
+</div>

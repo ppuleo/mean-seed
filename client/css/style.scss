@@ -1,0 +1,23 @@
+/**
+ * Style.scss - Main SCSS file
+ */
+
+/* Normalize */
+@import "../lib/foundation/normalize.scss";
+
+/* Framework */
+@import "../lib/foundation/foundation";
+
+/* CSS Modules */
+@import "modules/_fonts";
+@import "modules/_global";
+@import "modules/_headers";
+@import "modules/_pages";
+@import "modules/_forms";
+@import "modules/_messages";
+@import "modules/_animations";
+
+/* Pages */
+@import "pages/_login";
+@import "pages/_signup";
+@import "pages/_profile";

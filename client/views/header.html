@@ -1,0 +1,30 @@
+<div class="header-container">
+
+    <!-- Left side button -->
+    <div class="header-button left">
+        <button
+            type="button"
+            ng-show="$route.current.$$route.access=='private'"
+            ng-click="go('back', 'slideRight')"
+        >
+            <i class="fi-arrow-left"></i>
+        </button>
+    </div>
+
+    <!-- Page title -->
+    <div class="header-center">
+        <h1 class="page-title">{{appState.page.title}}</h1>
+    </div>
+
+    <!-- Right side button -->
+    <div class="header-button right">
+        <button
+            type="button"
+            ng-show="$route.current.$$route.access=='private'"
+            ng-click="go('/settings', 'slideLeft')"
+        >
+            <i class="fi-wrench"></i>
+        </button>
+    </div>
+
+</div>

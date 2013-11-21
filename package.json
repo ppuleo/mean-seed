@@ -1,0 +1,37 @@
+{
+  "name": "rest-mean-seed",
+  "subdomain": "rest-mean-seed",
+  "description": "A seed project for building RESTful apps with node, mongo, express, and angular",
+  "scripts": {
+    "start": "server/node server.js"
+  },
+  "version": "0.0.0-0",
+  "private": true,
+  "engines": {
+    "node": "0.8.x"
+  },
+  "dependencies": {
+    "express": "latest",
+    "mongoose": "latest",
+    "passport": "latest",
+    "connect-flash": "latest",
+    "passport-local": "latest",
+    "passport-facebook": "latest",
+    "passport-twitter": "latest",
+    "passport-github": "latest",
+    "passport-google-oauth": "latest",
+    "bcrypt": "latest",
+    "ejs": "latest",
+    "nodemailer": "latest"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-autoprefixer": "latest",
+    "grunt-contrib-watch": "latest",
+    "matchdep": "latest",
+    "grunt-nodemon": "latest",
+    "grunt-concurrent": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-clean": "latest"
+  }
+}

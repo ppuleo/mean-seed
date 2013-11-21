@@ -1,0 +1,190 @@
+/**
+ * Common Animations
+ */
+
+// NOTE: ngAnimate has changed in v1.2.0. We no longer need ng-animate directives as it's all class-
+// based now. See: http://docs.angularjs.org/api/ngAnimate
+
+// Default Enter/Leave
+.ng-enter,
+.ng-leave {
+    transition-timing-function: ease;
+    transition-duration: 250ms;
+    transition-property: opacity;
+}
+
+.ng-enter {
+    opacity: 0;
+}
+
+.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.ng-leave {
+    opacity: 1;
+}
+
+.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+// crossFade
+.crossFade.ng-enter {
+    transition-duration: 100ms;
+    opacity: 0;
+}
+
+.crossFade.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.crossFade.ng-leave {
+    transition-duration: 100ms;
+    opacity: 1;
+}
+
+.crossFade.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+// slideRight
+.slideRight {
+    opacity: 1 !important;
+}
+
+.slideRight.ng-enter {
+    transition-property: none;
+    transform: translate3d(-100%,0,0);
+}
+
+.slideRight.ng-enter.ng-enter-active {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+
+.slideRight.ng-leave {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+
+.slideRight.ng-leave.ng-leave-active {
+    transition-property: all;
+    transform: translate3d(100%,0,0);
+}
+
+// slideLeft
+.slideLeft {
+    opacity: 1 !important;
+}
+
+.slideLeft.ng-enter {
+    transition-property: none;
+    transform: translate3d(100%,0,0);
+}
+
+.slideLeft.ng-enter.ng-enter-active {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+
+.slideLeft.ng-leave {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+
+.slideLeft.ng-leave.ng-leave-active {
+    transition-property: all;
+    transform: translate3d(-100%,0,0);
+}
+
+// slideDown
+.slideDown {
+
+}
+
+.slideDown.ng-enter {
+    transition-property: none;
+    transform: translate3d(0,-100%,0);
+}
+
+.slideDown.ng-enter.ng-enter-active {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+
+.slideDown.ng-leave {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+
+.slideDown.ng-leave.ng-leave-active {
+    transition-property: all;
+    transform: translate3d(0,100%,0);
+}
+
+// slideUp
+.slideUp {
+
+}
+
+.slideUp.ng-enter {
+    transition-property: none;
+    transform: translate3d(0,100%,0);
+}
+
+.slideUp.ng-enter.ng-enter-active {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+
+.slideUp.ng-leave {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+
+.slideUp.ng-leave.ng-leave-active {
+    transition-property: all;
+    transform: translate3d(0,-100%,0);
+}
+
+
+// Default Show/Hide
+.ng-hide-add,
+.ng-hide-remove {
+    transition-property: all;
+    transition-timing-function: ease;
+    transition-duration: 250ms;
+    display: block!important;
+}
+
+.ng-hide-add.ng-hide-add-active,
+.ng-hide-remove {
+    opacity: 0;
+}
+
+.ng-hide-add,
+.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+}
+
+// Slide up/down
+.slideDownUp.ng-hide-add,
+.slideDownUp.ng-hide-remove {
+    transition-property: all;
+    transition-timing-function: ease;
+    transition-duration: 250ms;
+    display: block!important;
+}
+
+.slideDownUp.ng-hide-add.ng-hide-add-active,
+.slideDownUp.ng-hide-remove {
+    transform: translate3d(0,-100%,0);
+    opacity: 1;
+}
+
+.slideDownUp.ng-hide-add,
+.slideDownUp.ng-hide-remove.ng-hide-remove-active {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+}

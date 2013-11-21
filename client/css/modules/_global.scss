@@ -1,0 +1,92 @@
+/* GLOBAL STYLES */
+
+html {
+    font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    overflow: hidden;
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    user-select: none;
+}
+
+div,
+nav,
+section {
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+}
+
+label {
+
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+a:hover, a:focus { }
+
+/* Headings */
+h1 {
+    text-align: center;
+    width: 100%;
+}
+
+/* partial containers */
+.application-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transform: translate3d(0,0,0);
+}
+
+.application-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000;
+}
+
+/* media queries */
+
+/* Smaller than standard 1024 (devices and browsers) */
+@media only screen and (max-width: 1023px) {
+
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+}

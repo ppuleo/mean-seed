@@ -1,0 +1,36 @@
+<div class="page admin-page">
+
+    <section class="page-content">
+        <div class="accounts-list">
+            <h2>Accounts</h2>
+
+            <div class="error" ng-show="appState.error">{{appState.error}}</div>
+
+            <table ng-show="!appState.error">
+                <thead>
+                    <tr>
+                        <th><!-- <input type="checkbox" /> --></th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="person in accounts">
+                        <td><input type="checkbox" /></td>
+                        <td>{{person.name.last}}</td>
+                        <td>{{person.name.first}}</td>
+                        <td>{{person.email}}</td>
+                        <td>{{person.role}}</td>
+                        <td class="action"><a ng-click="editAccount(person._id)">edit</a></td>
+                        <td class="action"><a ng-click="removeAccount(person._id, $index)">delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+</div>

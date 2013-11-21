@@ -1,0 +1,80 @@
+<div class="page login-page">
+
+    <section class="hero">
+        <h1>REST/MEAN Seed Application</h1>
+
+    	<!-- Login Form Container-->
+        <div class="form-item">
+
+            <!-- Login Form -->
+            <form name="userAccount" novalidate>
+
+                <!-- Validation/Error Messages -->
+                <div>
+
+                    <!-- Login Status Messages -->
+                    <div class="loginStatus" ng-show="loginMessage.isVisible">
+                        Email & Password Not Recognized
+                        <p ng-bind-html="loginMessage.message"></p>
+                    </div>
+
+                    <!-- Email Validation Messages -->
+                    <div class="validation-messages" ng-hide="userAccount.currentField=='mail'">
+                        <div ng-show="userAccount.mail.$dirty">
+                            <span class="valid-message" ng-show="userAccount.mail.$error.required">Email Required</span>
+                            <span class="valid-message" ng-show="userAccount.mail.$error.email">Invalid Email Format</span>
+                        </div>
+                    </div>
+
+                    <!-- Password Validation Messages -->
+                    <div class="validation-messages" ng-hide="userAccount.currentField=='secret'">
+                        <div ng-show="userAccount.secret.$dirty">
+                            <span class="valid-message" ng-show="userAccount.secret.$error.required">Password Required</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Email Address -->
+                <input
+                    ng-model="userAccount.email"
+                    name="mail"
+                    type="email"
+                    required
+                    placeholder="email address"
+                >
+
+                <!-- Password -->
+                <input
+                    ng-model="userAccount.password"
+                    name="secret"
+                    type="password"
+                    required
+                    autocomplete="off"
+                    placeholder="password"
+                >
+
+    			<!-- Password Reset Link -->
+                <a ng-click="go('/forgot','slideLeft')" class="forgot-link">forgot?</a>
+
+                <!-- Login Submit Button -->
+                <button
+                    class="form-btn"
+                    ng-click="login(userAccount)"
+                 >login</button>
+
+    		</form>
+    	</div>
+
+        <!-- Alternate Action Buttons Container -->
+        <div class="signup-button-wrapper">
+            <button class="register signup-button" ng-click="go('/signup','slideLeft')">Register</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="page-footer">
+
+    </div>
+
+</div>

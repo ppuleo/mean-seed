@@ -1,0 +1,152 @@
+<div class="page myaccount-page">
+
+    <section class="page-content">
+
+    	<!-- Avatar Upload -->
+    	<div class="owner">
+    		<div class="owner-avatar"></div>
+    	</div>
+
+        <!-- Signup Form -->
+        <form name="myAccount" ng-show="!appState.error" novalidate>
+
+
+            <!-- First Name -->
+            <div class="form-item">
+
+                <label for="firstname">First Name</label>
+
+                <span class="validation-messages" ng-show="myAccount.firstname.$dirty">
+                        <span class="valid-message" ng-show="myAccount.firstname.$error.required">Required</span>
+                        <span class="valid-message" ng-show="myAccount.firstname.$error.minlength">Too Short</span>
+                </span>
+
+                <input
+                    ng-model="user.name.first"
+                    name="firstname"
+                    type="text"
+                    required
+                    ng-minlength="2"
+                    placeholder="{{user.name.first}}"
+                >
+
+            </div>
+
+             <!-- Last Name -->
+             <div class="form-item">
+
+             	<label for="lastname">Last Name</label>
+
+                <span class="validation-messages" ng-show="myAccount.lastname.$dirty">
+                        <span class="valid-message" ng-show="myAccount.lastname.$error.required">Required</span>
+                        <span class="valid-message" ng-show="myAccount.lastname.$error.minlength">Too Short</span>
+                </span>
+
+                <input
+                    ng-model="user.name.last"
+                    name="lastname"
+                    type="text"
+                    required
+                    ng-minlength="2"
+                    placeholder="{{user.name.last}}"
+                >
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-item">
+
+                <label for="email">Email address</label>
+
+                <span class="validation-messages" ng-show="myAccount.mail.$dirty">
+                        <span class="valid-message" ng-show="myAccount.mail.$error.required">Required</span>
+                        <span class="valid-message" ng-show="myAccount.mail.$error.email">Invalid Format</span>
+                </span>
+
+                <input
+                    ng-model="user.email"
+                    name="mail"
+                    type="email"
+                    required
+                    placeholder="{{user.email}}"
+                >
+            </div>
+
+            <!-- Password -->
+            <!-- <div class="form-item">
+                <label for="password">Create a password</label>
+
+
+                <span class="validation-messages" ng-show="myAccount.secret.$dirty">
+                        <span class="valid-message" ng-show="myAccount.secret.$error.required">Required</span>
+                        <span class="valid-message" ng-show="myAccount.secret.$error.minlength">Too Short</span>
+                </span>
+
+                <input
+                    ng-model="user.password"
+                    name="secret"
+                    type="password"
+
+                    ng-minlength="6"
+                    autocomplete="off"
+                    placeholder="********"
+                >
+            </div> -->
+
+			<!-- language -->
+			<div class="form-item">
+				<label for="language">select language</label>
+				<select
+                    ng-model="user.language"
+                    ng-options="item as item for item in languageOptions">
+                    <option value="" ng-hide="user.language">Select...</option>
+				</select>
+			</div>
+
+            <!-- Role (Admins Only) -->
+            <div class="form-item" ng-show="appState.user.role=='admin'">
+                <label>Role</span></label>
+
+                <label for="user">
+                    <input
+                        ng-model="user.role"
+                        type="radio"
+                        value="user"
+                        name="user"
+                    >&nbsp;User
+                </label>
+
+                <label for="admin">
+                    <input
+                    ng-model="user.role"
+                    type="radio"
+                    value="admin"
+                    name="admin"
+                    >&nbsp;Admin
+                </label>
+            </div>
+
+            <!-- Form Action Buttons -->
+            <div class="form-action">
+                <button
+                    name="back"
+                    type="button"
+                    value="x"
+                    class="form-btn"
+                    ng-click="go('/options','slideRight')"
+                    >cancel
+                </button>
+                <button
+                    name="submit"
+                    type="button"
+                    value="sign up"
+                    class="form-btn submit"
+                    ng-disabled="!myAccount.$valid"
+                    ng-click="updateAccount(myAccount)">save changes
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+
+</div>

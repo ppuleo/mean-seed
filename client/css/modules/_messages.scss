@@ -1,0 +1,32 @@
+.system-messages {
+	position: relative;
+	z-index: 100;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	background-position: right top;
+    font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+    padding: 11px 20px 13px 20px;
+    border-radius: 0;
+    text-align: center;
+    line-height: 130%;
+
+    color: #fff;
+    background-color: rgba(200,80,87,1);
+}
+.system-messages h2 {
+	font-weight: 700;
+	font-size: 1rem;
+}
+.system-messages p {
+	font-weight: 300;
+	font-size: 0.9rem;
+}
+
+.system-messages a {
+    font-weight: bold;
+}
+
+.system-messages a:hover,
+.system-messages a:active {
+    text-decoration: underline;
+}

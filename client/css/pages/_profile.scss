@@ -1,0 +1,52 @@
+.profile-page section.page-content {
+    height: 100%;
+}
+
+.profile-page .avatar {
+	/* border-radius: 4px; */
+	min-width: 100px;
+	width: 100px;
+	height: 100px;
+	background-image: url(../assets/icons/default.png);
+	background-color: rgba(48,46,51,1);
+	background-size: cover;
+	background-repeat: no-repeat;
+	border: 5px solid #fff;
+	margin: 20px auto;
+}
+
+
+.profile-page .profile-card {
+    padding: 20px 15px;
+}
+
+.profile-page .profile-card .contact-info {
+
+}
+	.profile-page .profile-card .contact-info .name {
+		font-size: 1rem;
+		font-weight: 300;
+		letter-spacing: 0.15rem;
+		text-transform: uppercase;
+		text-align: center;
+		line-height: 140%;
+		color: rgba(255,255,255,0.8);
+        width: 100%;
+	}
+
+	.profile-page .profile-card .status {
+		display: block;
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		line-height: 130%;
+		color: rgba(255,255,255,0.4);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-align: center;
+		margin-top: 7px;
+	}
+
+.profile-page .profile-card .list-btn {
+	margin: 15px auto 0;
+}
