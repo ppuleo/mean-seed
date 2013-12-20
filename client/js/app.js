@@ -11,12 +11,10 @@ myApp.app = angular.module('myApp', [
     'ngSanitize',
     'ngResource',
     'ngAnimate',
-    //'ngTouch',
     'myApp.filters',
     'myApp.services',
     'myApp.directives',
-    'myApp.controllers',
-    'ui.map'
+    'myApp.controllers'
 ]);
 
 // Initialize the myApp module
