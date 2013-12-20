@@ -95,12 +95,15 @@
 
 				<!-- accept -->
 				<div class="accept-legal">
-					<input type="checkbox"> I accept the <a ng-click="go('/tos')">terms of service</a> & <a ng-click="go('/privacy')">privacy policy</a>.
+					<input
+						ng-model="newAccount.terms"
+						type="checkbox"
+						required> I accept the <a ng-click="go('/tos')">terms of service</a> & <a ng-click="go('/privacy')">privacy policy</a>.
 				</div>
 
 				<!-- Form Action Buttons -->
 				<div class="form-action">
-					<button name="back" type="button" value="x" class="form-btn" ng-click="go('/login','slideRight')">back</button>
+
 					<button
 						name="submit"
 						type="button"
@@ -108,6 +111,8 @@
 						class="form-btn submit"
 						ng-disabled="!newAccount.$valid"
 						ng-click="createAccount(newAccount)">sign up</button>
+						or
+						<a ng-click="go('/login','slideRight')">cancel</a>
 				</div>
 
 			</form>
