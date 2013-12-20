@@ -15,6 +15,12 @@ form {
     font-size: 1.25rem;
 }
 
+.form-item input[type="text"].ng-dirty.ng-invalid,
+.form-item input[type="email"].ng-dirty.ng-invalid,
+.form-item input[type="password"].ng-dirty.ng-invalid {
+    border: 1px solid #FF0000;
+}
+
 .form-item .validation-messages {
     font-size: .9rem;
     position: absolute;

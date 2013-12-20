@@ -216,6 +216,9 @@ myApp.controllers.controller('LoginCtrl', ['$scope', '$http', '$window', '$sce',
             };
         }
     };
+
+    $scope.focusField = '';
+
 }]);
 
 /**

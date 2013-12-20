@@ -24,6 +24,8 @@
                 <div class="form-item">
                     <input
                         ng-model="userAccount.email"
+                        ng-focus="focusField = 'email'"
+                        ng-blur="focusField = ''"
                         name="mail"
                         type="email"
                         required
@@ -33,7 +35,7 @@
                     <!-- Email Validation Messages -->
                     <div class="validation-messages" ng-cloak ng-show="userAccount.mail.$dirty">
                         <span class="valid-message" ng-cloak ng-show="userAccount.mail.$error.required">Email Required</span>
-                        <span class="valid-message" ng-cloak ng-show="userAccount.mail.$error.email">Invalid Email Format</span>
+                        <span class="valid-message animate" ng-cloak ng-show="userAccount.mail.$error.email && focusField != 'email'">Invalid Email Format</span>
                     </div>
                 </div>
 
@@ -41,6 +43,8 @@
                 <div class="form-item">
                     <input
                         ng-model="userAccount.password"
+                        ng-focus="focusField = 'password'"
+                        ng-blur="focusField = ''"
                         name="secret"
                         type="password"
                         required
