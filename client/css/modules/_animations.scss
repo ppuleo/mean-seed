@@ -157,11 +157,8 @@
 .animate.ng-hide-remove,
 .animate.ng-show-add,
 .animate.ng-show-remove {
-  -webkit-transition:all linear 0.5s;
-  -moz-transition:all linear 0.5s;
-  -o-transition:all linear 0.5s;
-  transition:all linear 0.5s;
-  display:block!important;
+  transition: all linear 200ms;
+  display: block!important;
 }
 
 .animate.ng-hide-add.ng-hide-add-active,
