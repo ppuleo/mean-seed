@@ -1,7 +1,6 @@
 /* GLOBAL STYLES */
 
 html {
-    font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
     -webkit-text-size-adjust: 100%;
@@ -12,6 +11,7 @@ html {
 }
 
 body {
+    font-family: "Open Sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -53,6 +53,8 @@ a:hover, a:focus { }
 h1 {
     text-align: center;
     width: 100%;
+    font-weight: 300;
+    font-family: "Open Sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
 }
 
 /* partial containers */
