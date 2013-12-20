@@ -7015,7 +7015,7 @@ form.custom .custom.dropdown {
   background: white;
   background: -webkit-linear-gradient(top, white 0%, #f3f3f3 100%);
   -webkit-box-shadow: none;
-  background: -webkit-gradient(linear, top left, bottom left, from(white), to(#f3f3f3));
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f3f3f3));
   background: linear-gradient(to bottom, white 0%, #f3f3f3 100%);
   box-shadow: none;
   font-size: 0.875em;
@@ -7756,7 +7756,7 @@ ul.pagination li {
     border-color: #b3b3b3;
     background: white;
     background: -webkit-linear-gradient(top, white 0%, #f2f2f2 100%);
-    background: -webkit-gradient(linear, top left, bottom left, from(white), to(#f2f2f2));
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f2f2f2));
     background: linear-gradient(to bottom, white 0%, #f2f2f2 100%);
     -webkit-box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.07), 1000px 0 0 1000px #e1f5d1, -2px 0 10px 0 rgba(0, 0, 0, 0.07), -1000px 0 0 1000px whitesmoke;
     box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.07), 1000px 0 0 980px #e1f5d1, -2px 0 10px 0 rgba(0, 0, 0, 0.07), -1000px 0 0 1000px whitesmoke;
@@ -7766,7 +7766,7 @@ ul.pagination li {
   div.switch:focus span:last-child {
     background: white;
     background: -webkit-linear-gradient(top, white 0%, #e6e6e6 100%);
-    background: -webkit-gradient(linear, top left, bottom left, from(white), to(#e6e6e6));
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e6e6e6));
     background: linear-gradient(to bottom, white 0%, #e6e6e6 100%);
   }
 
@@ -9661,6 +9661,10 @@ section {
   box-sizing: border-box;
 }
 
+input {
+  max-width: 480px;
+}
+
 textarea {
   width: 100%;
 }
@@ -9670,6 +9674,11 @@ a:visited {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+}
+
+*:active,
+*:focus {
+  outline: none;
 }
 
 /* Headings */
@@ -9717,20 +9726,17 @@ h1 {
 .header-container {
   position: fixed;
   top: 0;
-  z-index: 300;
+  z-index: 10;
   width: 100%;
   height: 50px;
   text-transform: uppercase;
   display: -webkit-box;
   display: -webkit-flex;
-  display: -moz-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-  -moz-box-orient: horizontal;
-  -moz-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: nowrap;
@@ -9738,7 +9744,6 @@ h1 {
   flex-wrap: nowrap;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
   -webkit-align-content: center;
@@ -9746,7 +9751,6 @@ h1 {
   align-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
-  -moz-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   background-color: #222222;
@@ -9764,12 +9768,10 @@ h1 {
   cursor: auto;
   -webkit-box-ordinal-group: 1;
   -webkit-order: 0;
-  -moz-box-ordinal-group: 1;
   -ms-flex-order: 0;
   order: 0;
   -webkit-box-flex: 0;
   -webkit-flex: 0 1 auto;
-  -moz-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -webkit-align-self: center;
@@ -9847,6 +9849,29 @@ h1 {
   }
 }
 
+form {
+  margin: 2rem 0;
+}
+
+.form-item {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.form-item input[type="text"],
+.form-item input[type="email"],
+.form-item input[type="password"] {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.form-item .validation-messages {
+  font-size: .9rem;
+  position: absolute;
+  bottom: 0;
+}
+
 .system-messages {
   position: relative;
   z-index: 100;
@@ -9890,46 +9915,10 @@ h1 {
 .ng-leave {
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
-  -webkit-transition-duration: 250ms;
-  transition-duration: 250ms;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
   -webkit-transition-property: opacity;
   transition-property: opacity;
-}
-
-.ng-enter {
-  opacity: 0;
-}
-
-.ng-enter.ng-enter-active {
-  opacity: 1;
-}
-
-.ng-leave {
-  opacity: 1;
-}
-
-.ng-leave.ng-leave-active {
-  opacity: 0;
-}
-
-.crossFade.ng-enter {
-  -webkit-transition-duration: 100ms;
-  transition-duration: 100ms;
-  opacity: 0;
-}
-
-.crossFade.ng-enter.ng-enter-active {
-  opacity: 1;
-}
-
-.crossFade.ng-leave {
-  -webkit-transition-duration: 100ms;
-  transition-duration: 100ms;
-  opacity: 1;
-}
-
-.crossFade.ng-leave.ng-leave-active {
-  opacity: 0;
 }
 
 .slideRight {
@@ -10068,58 +10057,51 @@ h1 {
   transform: translate3d(0, -100%, 0);
 }
 
-.ng-hide-add,
-.ng-hide-remove {
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -webkit-transition-duration: 250ms;
-  transition-duration: 250ms;
+.animate.ng-hide-add,
+.animate.ng-hide-remove,
+.animate.ng-show-add,
+.animate.ng-show-remove {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
   display: block !important;
 }
 
-.ng-hide-add.ng-hide-add-active,
-.ng-hide-remove {
+.animate.ng-hide-add.ng-hide-add-active,
+.animate.ng-hide-remove,
+.animate.ng-show-add.ng-show-add-active,
+.animate.ng-show-remove {
   opacity: 0;
 }
 
-.ng-hide-add,
-.ng-hide-remove.ng-hide-remove-active {
-  opacity: 1;
-}
-
-.slideDownUp.ng-hide-add,
-.slideDownUp.ng-hide-remove {
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -webkit-transition-duration: 250ms;
-  transition-duration: 250ms;
-  display: block !important;
-}
-
-.slideDownUp.ng-hide-add.ng-hide-add-active,
-.slideDownUp.ng-hide-remove {
-  -webkit-transform: translate3d(0, -100%, 0);
-  -ms-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0);
-  opacity: 1;
-}
-
-.slideDownUp.ng-hide-add,
-.slideDownUp.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+.animate.ng-hide-add,
+.animate.ng-hide-remove.ng-hide-remove-active,
+.animate.ng-show-add,
+.animate.ng-show-remove.ng-show-remove-active {
   opacity: 1;
 }
 
 /* Pages */
 
-.login-page .hero {
-  background-color: #13A7C7;
+.login-page .page-content {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.login-page .forgot-link {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  font-size: .9rem;
+}
+
+.login-page .action-buttons {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.signup-page .page-content {
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .profile-page section.page-content {
