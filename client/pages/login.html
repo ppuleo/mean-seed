@@ -1,6 +1,6 @@
 <div class="page login-page">
 
-    <section class="hero">
+    <section class="page-content">
         <h1>REST/MEAN Seed Application</h1>
 
     	<!-- Login Form Container-->
@@ -18,58 +18,58 @@
                         <p ng-bind-html="loginMessage.message"></p>
                     </div>
 
-                    <!-- Email Validation Messages -->
-                    <div class="validation-messages" ng-hide="userAccount.currentField=='mail'">
-                        <div ng-show="userAccount.mail.$dirty">
-                            <span class="valid-message" ng-show="userAccount.mail.$error.required">Email Required</span>
-                            <span class="valid-message" ng-show="userAccount.mail.$error.email">Invalid Email Format</span>
-                        </div>
-                    </div>
-
-                    <!-- Password Validation Messages -->
-                    <div class="validation-messages" ng-hide="userAccount.currentField=='secret'">
-                        <div ng-show="userAccount.secret.$dirty">
-                            <span class="valid-message" ng-show="userAccount.secret.$error.required">Password Required</span>
-                        </div>
-                    </div>
-
                 </div>
 
                 <!-- Email Address -->
-                <input
-                    ng-model="userAccount.email"
-                    name="mail"
-                    type="email"
-                    required
-                    placeholder="email address"
-                >
+                <div class="form-item">
+                    <input
+                        ng-model="userAccount.email"
+                        name="mail"
+                        type="email"
+                        required
+                        placeholder="email address"
+                    >
+
+                    <!-- Email Validation Messages -->
+                    <div class="validation-messages" ng-cloak ng-show="userAccount.mail.$dirty">
+                        <span class="valid-message" ng-cloak ng-show="userAccount.mail.$error.required">Email Required</span>
+                        <span class="valid-message" ng-cloak ng-show="userAccount.mail.$error.email">Invalid Email Format</span>
+                    </div>
+                </div>
 
                 <!-- Password -->
-                <input
-                    ng-model="userAccount.password"
-                    name="secret"
-                    type="password"
-                    required
-                    autocomplete="off"
-                    placeholder="password"
-                >
+                <div class="form-item">
+                    <input
+                        ng-model="userAccount.password"
+                        name="secret"
+                        type="password"
+                        required
+                        autocomplete="off"
+                        placeholder="password"
+                    >
+
+                    <!-- Password Validation Messages -->
+                    <div class="validation-messages" ng-cloak ng-show="userAccount.secret.$dirty">
+                        <span class="valid-message" ng-cloak ng-show="userAccount.secret.$error.required">Password Required</span>
+                    </div>
+                </div>
 
     			<!-- Password Reset Link -->
-                <a ng-click="go('/forgot','slideLeft')" class="forgot-link">forgot?</a>
+                <a ng-click="go('/forgot','slideLeft')" class="forgot-link">forgot your password?</a>
 
                 <!-- Login Submit Button -->
-                <button
-                    class="form-btn"
-                    ng-click="login(userAccount)"
-                 >login</button>
+                <div class="action-buttons">
+                    <button
+                        class="form-btn"
+                        ng-click="login(userAccount)"
+                        ng-disabled="!userAccount.$valid"
+                     >login</button> or
 
+                    <a class="register signup-button" ng-click="go('/signup','slideLeft')">Sign Up</a>
+                </div>
     		</form>
     	</div>
 
-        <!-- Alternate Action Buttons Container -->
-        <div class="signup-button-wrapper">
-            <button class="register signup-button" ng-click="go('/signup','slideLeft')">Register</button>
-        </div>
     </section>
 
     <!-- Footer -->
