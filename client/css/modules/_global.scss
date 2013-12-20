@@ -24,6 +24,10 @@ section {
     box-sizing: border-box;
 }
 
+input {
+    max-width: 480px;
+}
+
 textarea {
     width: 100%;
 }
@@ -39,6 +43,11 @@ a, a:visited {
 }
 
 a:hover, a:focus { }
+
+*:active,
+*:focus {
+    outline: none;
+}
 
 /* Headings */
 h1 {
