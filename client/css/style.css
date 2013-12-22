@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,600);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700);
 
 /**
  * Style.scss - Main SCSS file
@@ -8187,6 +8187,8 @@ a.th {
   max-width: 800px;
 }
 
+/* Fonts */
+
 /* CSS Modules */
 
 /*
@@ -9632,7 +9634,6 @@ a.th {
 /* GLOBAL STYLES */
 
 html {
-  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   /* Fix for webkit rendering */
@@ -9644,6 +9645,7 @@ html {
 }
 
 body {
+  font-family: "Open Sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -9686,6 +9688,8 @@ a:visited {
 h1 {
   text-align: center;
   width: 100%;
+  font-weight: 300;
+  font-family: "Open Sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
 }
 
 /* partial containers */
@@ -9790,12 +9794,6 @@ h1 {
   box-shadow: none;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-  .header-container {
-    position: -webkit-sticky;
-  }
-}
-
 .page {
   height: 100%;
   width: 100%;
@@ -9834,19 +9832,6 @@ h1 {
   .page {
     height: auto;
   }
-
-  .page-content {
-    padding-top: 0px;
-  }
-
-  .main-page .page-content,
-  .options-page .page-content,
-  .myaccount-page .page-content,
-  .tos-page .page-content,
-  .faq-page .page-content,
-  .admin-page .page-content {
-    padding-top: 10px;
-  }
 }
 
 form {
@@ -9864,6 +9849,12 @@ form {
 .form-item input[type="password"] {
   margin: 0;
   font-size: 1.25rem;
+}
+
+.form-item input[type="text"].ng-dirty.ng-invalid,
+.form-item input[type="email"].ng-dirty.ng-invalid,
+.form-item input[type="password"].ng-dirty.ng-invalid {
+  border: 1px solid #FF0000;
 }
 
 .form-item .validation-messages {
@@ -10061,8 +10052,8 @@ form {
 .animate.ng-hide-remove,
 .animate.ng-show-add,
 .animate.ng-show-remove {
-  -webkit-transition: all linear 0.5s;
-  transition: all linear 0.5s;
+  -webkit-transition: all linear 200ms;
+  transition: all linear 200ms;
   display: block !important;
 }
 

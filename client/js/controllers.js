@@ -418,6 +418,9 @@ myApp.controllers.controller('SignupCtrl', ['$scope', 'People', function ($scope
 
     if ($scope.appState.debug) { console.log('*** SignupCtrl: Init ***'); }
 
+    $scope.newAccount = {};
+    $scope.focusField = '';
+
     // Create a person
     $scope.createAccount = function (account) {
 

@@ -5,16 +5,17 @@
     	<h1>Sign Up</h1>
 
 			<!-- Signup Form -->
-			<form name="newAccount" novalidate>
+			<form name="newAccountForm" novalidate>
 
-
+				<!-- First Name -->
 				<div class="form-item">
 
-					<!-- First Name -->
 					<label for="firstname">First Name</label>
 
 					<input
 						ng-model="newAccount.name.first"
+						ng-focus="focusField = 'firstname'"
+                        ng-blur="focusField = ''"
 						name="firstname"
 						type="text"
 						required
@@ -22,20 +23,26 @@
 						placeholder="First"
 					>
 
-					<span class="validation-messages" ng-show="newAccount.firstname.$dirty">
-						<span class="valid-message" ng-show="newAccount.firstname.$error.required">Required</span>
-						<span class="valid-message" ng-show="newAccount.firstname.$error.minlength">Too Short</span>
+					<span class="validation-messages" ng-show="newAccountForm.firstname.$dirty">
+						<span class="valid-message" ng-show="newAccountForm.firstname.$error.required">Required</span>
+						<span
+							class="valid-message"
+							ng-show="newAccountForm.firstname.$error.minlength && focusField != 'firstname'"
+						>Too Short
+						</span>
 					</span>
 
 				</div>
 
+				<!-- Last Name -->
 				<div class="form-item">
 
-					<!-- Last Name -->
 					<label for="lastname">Last Name</label>
 
 					<input
 						ng-model="newAccount.name.last"
+						ng-focus="focusField = 'lastname'"
+                        ng-blur="focusField = ''"
 						name="lastname"
 						type="text"
 						required
@@ -43,9 +50,12 @@
 						placeholder="Last"
 					>
 
-					<span class="validation-messages" ng-show="newAccount.lastname.$dirty">
-						<span class="valid-message" ng-show="newAccount.lastname.$error.required">Required</span>
-						<span class="valid-message" ng-show="newAccount.lastname.$error.minlength">Too Short</span>
+					<span class="validation-messages" ng-show="newAccountForm.lastname.$dirty">
+						<span class="valid-message" ng-show="newAccountForm.lastname.$error.required">Required</span>
+						<span
+							class="valid-message"
+							ng-show="newAccountForm.lastname.$error.minlength && focusField != 'lastname'"
+						>Too Short</span>
 					</span>
 
 				</div>
@@ -57,6 +67,8 @@
 
 					<input
 						ng-model="newAccount.email"
+						ng-focus="focusField = 'email'"
+                        ng-blur="focusField = ''"
 						name="mail"
 						type="email"
 						required
@@ -64,9 +76,12 @@
 					>
 
 					<!-- Validation Messages -->
-					<span class="validation-messages" ng-show="newAccount.mail.$dirty">
-						<span class="valid-message" ng-show="newAccount.mail.$error.required">Required</span>
-						<span class="valid-message" ng-show="newAccount.mail.$error.email">Invalid Format</span>
+					<span class="validation-messages" ng-show="newAccountForm.mail.$dirty">
+						<span class="valid-message" ng-show="newAccountForm.mail.$error.required">Required</span>
+						<span
+							class="valid-message"
+							ng-show="newAccountForm.mail.$error.email && focusField != 'email'"
+						>Invalid Format</span>
 					</span>
 
 				</div>
@@ -85,9 +100,9 @@
 					>
 
 					<!-- Validation Messages -->
-					<span class="validation-messages" ng-show="newAccount.secret.$dirty">
-							<span class="valid-message" ng-show="newAccount.secret.$error.required">Required</span>
-							<span class="valid-message" ng-show="newAccount.secret.$error.minlength">Too Short</span>
+					<span class="validation-messages" ng-show="newAccountForm.secret.$dirty">
+							<span class="valid-message" ng-show="newAccountForm.secret.$error.required">Required</span>
+							<span class="valid-message" ng-show="newAccountForm.secret.$error.minlength">Too Short</span>
 					</span>
 
 				</div>
@@ -109,7 +124,7 @@
 						type="button"
 						value="sign up"
 						class="form-btn submit"
-						ng-disabled="!newAccount.$valid"
+						ng-disabled="!newAccountForm.$valid"
 						ng-click="createAccount(newAccount)">sign up</button>
 						or
 						<a ng-click="go('/login','slideRight')">cancel</a>
