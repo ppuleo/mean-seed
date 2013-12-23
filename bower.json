@@ -1,0 +1,28 @@
+{
+  "name": "mean-seed",
+  "version": "0.0.0",
+  "authors": [
+    "Phil Puleo <puleo.phil@gmail.com>"
+  ],
+  "description": "A seed project for building web applications with mongoDB, express, angularJS, and node.js.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.4",
+    "angular-resource": "1.2.4",
+    "angular-animate": "1.2.4",
+    "angular-route": "1.2.4",
+    "angular-sanitize": "1.2.4",
+    "angular-cookies": "1.2.4",
+    "foundation": "latest",
+    "fastclick": "latest"
+  }
+}

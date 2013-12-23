@@ -27,6 +27,9 @@ Icon
 # Node Modules
 node_modules/
 
+# Bower Components
+client/lib/
+
 # Mongo DB
 server/data/mongodb/*
 
