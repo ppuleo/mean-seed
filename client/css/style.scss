@@ -2,14 +2,11 @@
  * Style.scss - Main SCSS file
  */
 
-/* Normalize */
-@import "../lib/foundation/normalize.scss";
+/* Foundation */
+@import "../lib/foundation/scss/foundation/settings";
+@import "../lib/foundation/scss/normalize";
+@import "../lib/foundation/scss/foundation";
 
-/* Framework */
-@import "../lib/foundation/foundation";
-
-/* Fonts */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700);
 
 /* CSS Modules */
 @import "modules/_fonts";
