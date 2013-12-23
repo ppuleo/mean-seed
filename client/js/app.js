@@ -128,5 +128,9 @@ myApp.app.config(['$routeProvider', function ($routeProvider) {
             controller: 'SignupCtrl',
             access: 'public'
         })
+        .when('/tos', {
+            templateUrl: 'pages/tos.html',
+            access: 'public'
+        })
         .otherwise({ redirectTo: '/main'});
 }]);
