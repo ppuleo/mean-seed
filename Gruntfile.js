@@ -74,7 +74,7 @@ module.exports = function (grunt) {
             }
         },
         sass: {
-            dist: {
+            dev: {
                 loadPath: '<%= paths.client',
                 files: { '<%= paths.client %>/css/style.css': '<%= paths.client %>/css/style.scss' }
             }
@@ -122,7 +122,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([ // Dev server
             'clean:dev',
-            'sass',
+            'sass:dev',
             'autoprefixer',
             'concurrent'
         ]);
@@ -132,7 +132,7 @@ module.exports = function (grunt) {
     // Build Task (Note: task order is important!)
     grunt.registerTask('build', function () {
 
-        grunt.log.write('N2 Appshell Build ' + new Date() + '\n');
+        grunt.log.write('Mean Seed Build ' + new Date() + '\n');
 
         grunt.task.run([
             'clean:dist', // Empty the dist directory
