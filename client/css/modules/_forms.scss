@@ -3,7 +3,7 @@ form {
 }
 
 .form-item {
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.1rem;
     margin-bottom: 1rem;
     position: relative;
 }
@@ -12,7 +12,7 @@ form {
 .form-item input[type="email"],
 .form-item input[type="password"] {
     margin: 0;
-    font-size: 1.25rem;
+    // font-size: 1.25rem;
 }
 
 .form-item input[type="text"].ng-dirty.ng-invalid,
@@ -22,7 +22,17 @@ form {
 }
 
 .form-item .validation-messages {
-    font-size: .9rem;
+    color: #FF0000;
+    font-size: .75rem;
     position: absolute;
     bottom: 0;
+}
+
+.action-buttons {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.action-buttons button {
+    margin: 0 .5rem;
 }

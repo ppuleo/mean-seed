@@ -1,84 +1,85 @@
 <div class="page login-page">
 
     <section class="page-content">
-        <h1>MEAN Seed Application</h1>
+
+        <h1>Login</h1>
 
     	<!-- Login Form Container-->
-        <div class="form-item">
+        <div class="row">
 
-            <!-- Login Form -->
-            <form name="userAccount" novalidate>
+            <div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-4 large-offset-4">
 
-                <!-- Validation/Error Messages -->
-                <div>
+                <!-- Login Form -->
+                <form name="userAccount" novalidate>
 
-                    <!-- Login Status Messages -->
-                    <div class="loginStatus" ng-show="loginMessage.isVisible">
-                        Email & Password Not Recognized
-                        <p ng-bind-html="loginMessage.message"></p>
+                    <!-- Validation/Error Messages -->
+                    <div>
+
+                        <!-- Login Status Messages -->
+                        <div class="loginStatus" ng-show="loginMessage.isVisible">
+                            Email & Password Not Recognized
+                            <p ng-bind-html="loginMessage.message"></p>
+                        </div>
+
                     </div>
 
-                </div>
+                    <!-- Email Address -->
+                    <div class="form-item">
+                        <input
+                            ng-model="userAccount.email"
+                            ng-focus="focusField = 'email'"
+                            ng-blur="focusField = ''"
+                            name="mail"
+                            type="email"
+                            required
+                            placeholder="email address"
+                        >
 
-                <!-- Email Address -->
-                <div class="form-item">
-                    <input
-                        ng-model="userAccount.email"
-                        ng-focus="focusField = 'email'"
-                        ng-blur="focusField = ''"
-                        name="mail"
-                        type="email"
-                        required
-                        placeholder="email address"
-                    >
-
-                    <!-- Email Validation Messages -->
-                    <div class="validation-messages" ng-cloak ng-show="userAccount.mail.$dirty">
-                        <span class="valid-message" ng-cloak ng-show="userAccount.mail.$error.required">Email Required</span>
-                        <span class="valid-message animate" ng-cloak ng-show="userAccount.mail.$error.email && focusField != 'email'">Invalid Email Format</span>
+                        <!-- Email Validation Messages -->
+                        <div class="validation-messages" ng-cloak ng-show="userAccount.mail.$dirty">
+                            <span class="valid-message" ng-cloak ng-show="userAccount.mail.$error.required">Email Required</span>
+                            <span class="valid-message animate" ng-cloak ng-show="userAccount.mail.$error.email && focusField != 'email'">Invalid Email Format</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Password -->
-                <div class="form-item">
-                    <input
-                        ng-model="userAccount.password"
-                        ng-focus="focusField = 'password'"
-                        ng-blur="focusField = ''"
-                        name="secret"
-                        type="password"
-                        required
-                        autocomplete="off"
-                        placeholder="password"
-                    >
+                    <!-- Password -->
+                    <div class="form-item">
+                        <input
+                            ng-model="userAccount.password"
+                            ng-focus="focusField = 'password'"
+                            ng-blur="focusField = ''"
+                            name="secret"
+                            type="password"
+                            required
+                            autocomplete="off"
+                            placeholder="password"
+                        >
 
-                    <!-- Password Validation Messages -->
-                    <div class="validation-messages" ng-cloak ng-show="userAccount.secret.$dirty">
-                        <span class="valid-message" ng-cloak ng-show="userAccount.secret.$error.required">Password Required</span>
+                        <!-- Password Validation Messages -->
+                        <div class="validation-messages" ng-cloak ng-show="userAccount.secret.$dirty">
+                            <span class="valid-message" ng-cloak ng-show="userAccount.secret.$error.required">Password Required</span>
+                        </div>
                     </div>
-                </div>
 
-    			<!-- Password Reset Link -->
-                <a ng-click="go('/forgot','slideLeft')" class="forgot-link">forgot your password?</a>
+        			<!-- Password Reset Link -->
+                    <a ng-click="go('/forgot','slideLeft')" class="forgot-link">forgot your password?</a>
 
-                <!-- Login Submit Button -->
-                <div class="action-buttons">
-                    <button
-                        class="form-btn"
-                        ng-click="login(userAccount)"
-                        ng-disabled="!userAccount.$valid"
-                     >login</button> or
+                    <!-- Login Submit Button -->
+                    <div class="action-buttons">
+                        <button
+                            class="form-btn"
+                            ng-click="login(userAccount)"
+                            ng-disabled="!userAccount.$valid"
+                         >login</button> or
 
-                    <a class="register signup-button" ng-click="go('/signup','slideLeft')">Sign Up</a>
-                </div>
-    		</form>
+                        <a class="register signup-button" ng-click="go('/signup','slideLeft')">Sign Up</a>
+                    </div>
+        		</form>
+
+            </div>
+
     	</div>
 
     </section>
-
-    <!-- Footer -->
-    <div class="page-footer">
-
-    </div>
 
 </div>

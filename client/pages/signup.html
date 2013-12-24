@@ -4,137 +4,148 @@
 
     	<h1>Sign Up</h1>
 
-			<!-- Signup Form -->
-			<form name="newAccountForm" novalidate>
+    	<!-- Signup Form Container -->
+    	<div class="row">
 
-				<!-- First Name -->
-				<div class="form-item">
+    		<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-4 large-offset-4">
 
-					<label for="firstname">First Name</label>
+				<!-- Signup Form -->
+				<form name="newAccountForm" novalidate>
 
-					<input
-						ng-model="newAccount.name.first"
-						ng-focus="focusField = 'firstname'"
-                        ng-blur="focusField = ''"
-						name="firstname"
-						type="text"
-						required
-						ng-minlength="2"
-						placeholder="First"
-					>
+					<!-- Name Fields -->
+					<div class="row">
 
-					<span class="validation-messages" ng-show="newAccountForm.firstname.$dirty">
-						<span class="valid-message" ng-show="newAccountForm.firstname.$error.required">Required</span>
-						<span
-							class="valid-message"
-							ng-show="newAccountForm.firstname.$error.minlength && focusField != 'firstname'"
-						>Too Short
+						<!-- First Name -->
+						<div class="form-item columns small-6">
+
+							<!-- <label for="firstname">First Name</label> -->
+
+							<input
+								ng-model="newAccount.name.first"
+								ng-focus="focusField = 'firstname'"
+		                        ng-blur="focusField = ''"
+								name="firstname"
+								type="text"
+								required
+								ng-minlength="2"
+								placeholder="First Name"
+							/>
+
+							<span class="validation-messages" ng-show="newAccountForm.firstname.$dirty">
+								<span class="valid-message" ng-show="newAccountForm.firstname.$error.required">Required</span>
+								<span
+									class="valid-message"
+									ng-show="newAccountForm.firstname.$error.minlength && focusField != 'firstname'"
+								>Too Short
+								</span>
+							</span>
+
+						</div>
+
+						<!-- Last Name -->
+						<div class="form-item columns small-6">
+
+							<!-- <label for="lastname">Last Name</label> -->
+
+							<input
+								ng-model="newAccount.name.last"
+								ng-focus="focusField = 'lastname'"
+		                        ng-blur="focusField = ''"
+								name="lastname"
+								type="text"
+								required
+								ng-minlength="2"
+								placeholder="Last Name"
+							/>
+
+							<span class="validation-messages" ng-show="newAccountForm.lastname.$dirty">
+								<span class="valid-message" ng-show="newAccountForm.lastname.$error.required">Required</span>
+								<span
+									class="valid-message"
+									ng-show="newAccountForm.lastname.$error.minlength && focusField != 'lastname'"
+								>Too Short</span>
+							</span>
+
+						</div>
+
+					</div>
+
+					<!-- Email Address -->
+					<div class="form-item">
+
+						<!-- <label for="email">Email address</label> -->
+
+						<input
+							ng-model="newAccount.email"
+							ng-focus="focusField = 'email'"
+	                        ng-blur="focusField = ''"
+							name="mail"
+							type="email"
+							required
+							placeholder="email address"
+						/>
+
+						<!-- Validation Messages -->
+						<span class="validation-messages" ng-show="newAccountForm.mail.$dirty">
+							<span class="valid-message" ng-show="newAccountForm.mail.$error.required">Required</span>
+							<span
+								class="valid-message"
+								ng-show="newAccountForm.mail.$error.email && focusField != 'email'"
+							>Invalid Format</span>
 						</span>
-					</span>
 
-				</div>
+					</div>
 
-				<!-- Last Name -->
-				<div class="form-item">
+					<!-- Password -->
+					<div class="form-item">
 
-					<label for="lastname">Last Name</label>
+						<!-- <label for="password">Create a password</label> -->
 
-					<input
-						ng-model="newAccount.name.last"
-						ng-focus="focusField = 'lastname'"
-                        ng-blur="focusField = ''"
-						name="lastname"
-						type="text"
-						required
-						ng-minlength="2"
-						placeholder="Last"
-					>
+						<input
+							ng-model="newAccount.password"
+							name="secret"
+							type="password"
+							required
+							ng-minlength="6"
+							autocomplete="off"
+							placeholder="create a password"
+						/>
 
-					<span class="validation-messages" ng-show="newAccountForm.lastname.$dirty">
-						<span class="valid-message" ng-show="newAccountForm.lastname.$error.required">Required</span>
-						<span
-							class="valid-message"
-							ng-show="newAccountForm.lastname.$error.minlength && focusField != 'lastname'"
-						>Too Short</span>
-					</span>
+						<!-- Validation Messages -->
+						<span class="validation-messages" ng-show="newAccountForm.secret.$dirty">
+								<span class="valid-message" ng-show="newAccountForm.secret.$error.required">Required</span>
+								<span class="valid-message" ng-show="newAccountForm.secret.$error.minlength">Too Short</span>
+						</span>
 
-				</div>
-
-				<!-- Email Address -->
-				<div class="form-item">
-
-					<label for="email">Email address</label>
-
-					<input
-						ng-model="newAccount.email"
-						ng-focus="focusField = 'email'"
-                        ng-blur="focusField = ''"
-						name="mail"
-						type="email"
-						required
-						placeholder="you@domain.com"
-					>
-
-					<!-- Validation Messages -->
-					<span class="validation-messages" ng-show="newAccountForm.mail.$dirty">
-						<span class="valid-message" ng-show="newAccountForm.mail.$error.required">Required</span>
-						<span
-							class="valid-message"
-							ng-show="newAccountForm.mail.$error.email && focusField != 'email'"
-						>Invalid Format</span>
-					</span>
-
-				</div>
-
-				<!-- Password -->
-				<div class="form-item">
-					<label for="password">Create a password</label>
-
-					<input
-						ng-model="newAccount.password"
-						name="secret"
-						type="password"
-						required
-						ng-minlength="6"
-						autocomplete="off"
-					>
-
-					<!-- Validation Messages -->
-					<span class="validation-messages" ng-show="newAccountForm.secret.$dirty">
-							<span class="valid-message" ng-show="newAccountForm.secret.$error.required">Required</span>
-							<span class="valid-message" ng-show="newAccountForm.secret.$error.minlength">Too Short</span>
-					</span>
-
-				</div>
+					</div>
 
 
-				<!-- accept -->
-				<div class="accept-legal">
-					<input
-						ng-model="newAccount.terms"
-						type="checkbox"
-						required> I accept the <a ng-click="go('/tos', 'slideLeft')">terms of service</a> & <a ng-click="go('/privacy', 'slideLeft')">privacy policy</a>.
-				</div>
+					<!-- accept -->
+					<div class="accept-legal">
+						<input
+							ng-model="newAccount.terms"
+							type="checkbox"
+							required /> I accept the <a ng-click="go('/tos', 'slideLeft')">terms of service</a> & <a ng-click="go('/privacy', 'slideLeft')">privacy policy</a>.
+					</div>
 
-				<!-- Form Action Buttons -->
-				<div class="form-action">
+					<!-- Form Action Buttons -->
+					<div class="action-buttons">
 
-					<button
-						name="submit"
-						type="button"
-						value="sign up"
-						class="form-btn submit"
-						ng-disabled="!newAccountForm.$valid"
-						ng-click="createAccount(newAccount)">sign up</button>
-						or
-						<a ng-click="go('/login','slideRight')">cancel</a>
-				</div>
+						<button
+							name="submit"
+							type="button"
+							value="sign up"
+							class="form-btn submit"
+							ng-disabled="!newAccountForm.$valid"
+							ng-click="createAccount(newAccount)">sign up</button>
+							or
+							<a ng-click="go('/login','slideRight')">cancel</a>
+					</div>
 
-			</form>
+				</form>
+
+			</div>
+
   	</section>
 
-    <!-- Footer -->
-    <div class="page-footer">
-
-    </div>
 </div>

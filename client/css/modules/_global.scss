@@ -24,10 +24,6 @@ section {
     box-sizing: border-box;
 }
 
-input {
-    max-width: 480px;
-}
-
 textarea {
     width: 100%;
 }
@@ -51,6 +47,7 @@ a:hover, a:focus { }
 
 /* Headings */
 h1 {
+    margin: .5rem 0;
     text-align: center;
     width: 100%;
     font-weight: 300;
