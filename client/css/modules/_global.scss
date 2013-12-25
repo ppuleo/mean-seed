@@ -29,25 +29,25 @@ textarea {
 }
 
 label {
-
 }
 
 a, a:visited {
     text-decoration: none;
-    color: inherit;
     cursor: pointer;
 }
 
-a:hover, a:focus { }
+a:hover, a:focus {
+    text-decoration: underline;
+}
 
-*:active,
-*:focus {
+a:active,
+a:focus {
     outline: none;
 }
 
 /* Headings */
 h1 {
-    margin: .5rem 0;
+    margin: 1rem 0;
     text-align: center;
     width: 100%;
     font-weight: 300;
