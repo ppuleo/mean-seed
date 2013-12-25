@@ -163,11 +163,52 @@ angular.module('myApp.controllers', [])
 /**
  * Forgot Password Page Controller
  */
-.controller('ForgotCtrl', ['$scope', function ($scope) {
+.controller('ForgotCtrl', ['$scope', '$http', 'appState', function ($scope, $http, appState) {
 
     'use strict';
 
     if ($scope.appState.debug) { console.log('*** ForgotCtrl: Init ***'); }
+
+    $scope.resetSuccess = false;
+
+    $scope.requestPasswordReset = function (userAccount) {
+
+        var forgotPath = '/api/forgot';
+        var data = {
+            email: userAccount.email
+        };
+
+        $http.post(forgotPath, data)
+            .success(function (data) {
+
+                if (typeof(data.name) !== 'undefined') {
+
+                    $scope.resetSuccess = true;
+                    $scope.resetUser = data;
+                }
+                else {
+
+                    appState.message = {
+                        active: true,
+                        type: 'alert',
+                        title: 'Error',
+                        body: 'Sorry, we were unable to find your account information.'
+                    };
+                }
+            })
+            .error(function (err) {
+
+                appState.message = {
+                    active: true,
+                    type: 'alert',
+                    title: 'Error',
+                    body: 'Sorry, we were unable to send your password reset email.'
+                };
+
+                console.error(err);
+
+            });
+    };
 }])
 
 /**

@@ -1,18 +1,15 @@
 <div class="page forgot-page">
 
-	<section class="page-content">
+	<section class="page-content animate" ng-cloak ng-show="!resetSuccess">
 
 		<h1>Forgot your password?</h1>
-
 
 		<div class="row">
 
 			<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
 
 				<!-- message -->
-				<div>
-  					<p>Enter your email address and we'll send you a link to reset your password.</p>
-				</div>
+  				<p>Enter your email address and we'll send you a link to reset your password.</p>
 
 				<!-- Reset Password Form -->
 				<form name="userAccount" novalidate>
@@ -46,12 +43,38 @@
 							type="button"
 							value="submit"
 							class="form-btn submit"
-							ng-click="$location.path('/forgotconfirm');"
+							ng-click="requestPasswordReset(userAccount)"
 							ng-disabled="!userAccount.$valid">reset</button>
 							or
 							<a name="back" class="form-btn" ng-click="go('/login','slideRight')"> cancel</a>
 					</div>
 
+				</form>
+
+			</div>
+
+		</div>
+
+    </section>
+
+    <section class="page-content animate" ng-cloak ng-show="resetSuccess">
+
+		<h1>Password Reset Link Sent</h1>
+
+		<div class="row">
+
+			<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
+
+		    	<!-- message -->
+				<p>Thank you, {{resetUser.name.first}}. Check your email inbox and follow the link to choose a new password. Don't see it? Check your spam folder and mark it as not spam.</p>
+
+				<form>
+					<div class="action-buttons">
+						<button
+							type="button"
+							class="form-btn"
+							ng-click="go('/login', 'slideRight');">OK</button>
+					</div>
 				</form>
 
 			</div>
