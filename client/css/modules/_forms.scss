@@ -1,11 +1,18 @@
 form {
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
 .form-item {
     padding-bottom: 1.1rem;
     margin-bottom: 1rem;
     position: relative;
+}
+
+input[type="file"],
+input[type="checkbox"],
+input[type="radio"],
+select {
+    margin: 0 0 .5rem 0;
 }
 
 .form-item input[type="text"],
