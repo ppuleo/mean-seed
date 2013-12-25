@@ -1,12 +1,5 @@
-/**
- * Main App Object
- * @type {Object}
- */
-var myApp = window.myApp || {};
-
-
 // Declare the main app level module which depends on filters, controllers, and services
-myApp.app = angular.module('myApp', [
+angular.module('myApp', [
     'ngRoute',
     'ngSanitize',
     'ngResource',
@@ -15,10 +8,10 @@ myApp.app = angular.module('myApp', [
     'myApp.services',
     'myApp.directives',
     'myApp.controllers'
-]);
+])
 
 // Initialize the myApp module
-myApp.app.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
+.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
 
     'use strict';
 
@@ -57,10 +50,10 @@ myApp.app.run(['$rootScope', '$location', '$window', function ($rootScope, $loca
             $location.path('/login');
         }
     });
-}]);
+}])
 
 // myApp module config
-myApp.app.config(['$routeProvider', function ($routeProvider) {
+.config(['$routeProvider', function ($routeProvider) {
 
     'use strict';
 

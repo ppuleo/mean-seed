@@ -1,8 +1,8 @@
 /* Filters */
 
-myApp.filters = angular.module('myApp.filters', []);
+angular.module('myApp.filters', [])
 
-myApp.filters.filter('padzero', function () {
+.filter('padzero', function () {
 
     'use strict';
 

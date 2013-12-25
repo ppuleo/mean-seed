@@ -4,13 +4,12 @@
  *
  * @description  The services module for the app.
  */
-
-myApp.services = angular.module('myApp.services', []);
+angular.module('myApp.services', [])
 
 /**
  * The People Service creates an interface to the People REST API for use in controllers.
  */
-myApp.services.factory('People', ['$resource', function ($resource) {
+.factory('People', ['$resource', function ($resource) {
 
     'use strict';
 
@@ -18,12 +17,12 @@ myApp.services.factory('People', ['$resource', function ($resource) {
     return $resource('/people/:personId', {personId: '@_id'}, {
         update: { method: 'PUT' }
     });
-}]);
+}])
 
 /**
  * The App State Service provides a global state object for UI coordination.
  */
-myApp.services.service('appState', [function () {
+.service('appState', [function () {
 
     'use strict';
 

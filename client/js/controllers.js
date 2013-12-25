@@ -1,12 +1,11 @@
 /* Controllers */
-
-myApp.controllers = angular.module('myApp.controllers', []);
+angular.module('myApp.controllers', [])
 
 
 /**
  * Admin Page Controller
  */
-myApp.controllers.controller('AdminCtrl', ['$scope', 'People', function ($scope, People) {
+.controller('AdminCtrl', ['$scope', 'People', function ($scope, People) {
 
     'use strict';
 
@@ -42,12 +41,12 @@ myApp.controllers.controller('AdminCtrl', ['$scope', 'People', function ($scope,
             $scope.accounts.splice($index, 1);
         });
     };
-}]);
+}])
 
 /**
  * Application Controller
  */
-myApp.controllers.controller('AppCtrl', ['$scope', '$route', '$timeout', '$window', '$q', 'appState', 'People', function ($scope, $route, $timeout, $window, $q, appState, People) {
+.controller('AppCtrl', ['$scope', '$route', '$timeout', '$window', '$q', 'appState', 'People', function ($scope, $route, $timeout, $window, $q, appState, People) {
 
     'use strict';
 
@@ -126,12 +125,12 @@ myApp.controllers.controller('AppCtrl', ['$scope', '$route', '$timeout', '$windo
 
     // Initialize the app
     loadApp();
-}]);
+}])
 
 /**
  * Confirm Account Page Controller
  */
-myApp.controllers.controller('ConfirmCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+.controller('ConfirmCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
     'use strict';
 
@@ -159,22 +158,22 @@ myApp.controllers.controller('ConfirmCtrl', ['$scope', '$http', '$routeParams', 
             $scope.title = 'Error';
             $scope.message = 'Sorry, we were unable to confirm your account. The server said: ' + err;
         });
-}]);
+}])
 
 /**
  * Forgot Password Page Controller
  */
-myApp.controllers.controller('ForgotCtrl', ['$scope', function ($scope) {
+.controller('ForgotCtrl', ['$scope', function ($scope) {
 
     'use strict';
 
     if ($scope.appState.debug) { console.log('*** ForgotCtrl: Init ***'); }
-}]);
+}])
 
 /**
  * Login Page Controller
  */
-myApp.controllers.controller('LoginCtrl', ['$scope', '$http', '$window', '$sce', function ($scope, $http, $window, $sce) {
+.controller('LoginCtrl', ['$scope', '$http', '$window', '$sce', function ($scope, $http, $window, $sce) {
 
     'use strict';
 
@@ -218,13 +217,12 @@ myApp.controllers.controller('LoginCtrl', ['$scope', '$http', '$window', '$sce',
     };
 
     $scope.focusField = '';
-
-}]);
+}])
 
 /**
  * Main Page Controller
  */
-myApp.controllers.controller('MainCtrl', ['$scope', function ($scope) {
+.controller('MainCtrl', ['$scope', function ($scope) {
 
     'use strict';
 
@@ -233,12 +231,12 @@ myApp.controllers.controller('MainCtrl', ['$scope', function ($scope) {
     $scope.$on('viewContentLoaded', function () {
         console.log('view loaded');
     });
-}]);
+}])
 
 /**
  * My Account Page Controller
  */
-myApp.controllers.controller('MyaccountCtrl', ['$scope', '$routeParams', '$location', 'People', 'appState', function ($scope, $routeParams, $location, People, appState) {
+.controller('MyaccountCtrl', ['$scope', '$routeParams', '$location', 'People', 'appState', function ($scope, $routeParams, $location, People, appState) {
 
     'use strict';
 
@@ -322,23 +320,23 @@ myApp.controllers.controller('MyaccountCtrl', ['$scope', '$routeParams', '$locat
             );
         }
     };
-}]);
+}])
 
 /**
  * Profile Page Controller
  */
-myApp.controllers.controller('ProfileCtrl', ['$scope', '$routeParams', 'People', '$q', function ($scope, $routeParams, People, $q) {
+.controller('ProfileCtrl', ['$scope', '$routeParams', 'People', '$q', function ($scope, $routeParams, People, $q) {
 
     'use strict';
 
     // Debug message
     if ($scope.appState.debug) { console.log('*** ProfileCtrl: Init'); }
-}]);
+}])
 
 /**
  * Resend Confirmation Email Page Controller
  */
-myApp.controllers.controller('ResendCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+.controller('ResendCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
     'use strict';
 
@@ -369,12 +367,12 @@ myApp.controllers.controller('ResendCtrl', ['$scope', '$http', '$routeParams', f
             $scope.title = 'Error';
             $scope.message = 'Sorry, we were unable to resend your account confirmation email. The server said: ' + err;
         });
-}]);
+}])
 
 /**
  * Settings Page Controller
  */
-myApp.controllers.controller('SettingsCtrl', ['$scope', 'People', '$http', '$window', function ($scope, People, $http, $window) {
+.controller('SettingsCtrl', ['$scope', 'People', '$http', '$window', function ($scope, People, $http, $window) {
 
     'use strict';
 
@@ -407,12 +405,12 @@ myApp.controllers.controller('SettingsCtrl', ['$scope', 'People', '$http', '$win
                 };
             });
     };
-}]);
+}])
 
 /**
  * Signup Page Controller
  */
-myApp.controllers.controller('SignupCtrl', ['$scope', 'People', function ($scope, People) {
+.controller('SignupCtrl', ['$scope', 'People', function ($scope, People) {
 
     'use strict';
 
