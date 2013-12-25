@@ -7,7 +7,7 @@
     	<!-- Signup Form Container -->
     	<div class="row">
 
-    		<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-4 large-offset-4">
+    		<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
 
 				<!-- Signup Form -->
 				<form name="newAccountForm" novalidate>
@@ -18,7 +18,7 @@
 						<!-- First Name -->
 						<div class="form-item columns small-6">
 
-							<!-- <label for="firstname">First Name</label> -->
+							<label for="firstname">First Name</label>
 
 							<input
 								ng-model="newAccount.name.first"
@@ -28,14 +28,14 @@
 								type="text"
 								required
 								ng-minlength="2"
-								placeholder="First Name"
+								placeholder="Bender"
 							/>
 
-							<span class="validation-messages" ng-show="newAccountForm.firstname.$dirty">
-								<span class="valid-message" ng-show="newAccountForm.firstname.$error.required">Required</span>
+							<span class="validation-messages" ng-cloak ng-show="newAccountForm.firstname.$dirty">
+								<span class="valid-message" ng-cloak ng-show="newAccountForm.firstname.$error.required">Required</span>
 								<span
 									class="valid-message"
-									ng-show="newAccountForm.firstname.$error.minlength && focusField != 'firstname'"
+									ng-cloak ng-show="newAccountForm.firstname.$error.minlength && focusField != 'firstname'"
 								>Too Short
 								</span>
 							</span>
@@ -45,7 +45,7 @@
 						<!-- Last Name -->
 						<div class="form-item columns small-6">
 
-							<!-- <label for="lastname">Last Name</label> -->
+							<label for="lastname">Last Name</label>
 
 							<input
 								ng-model="newAccount.name.last"
@@ -55,14 +55,14 @@
 								type="text"
 								required
 								ng-minlength="2"
-								placeholder="Last Name"
+								placeholder="Rodríguez"
 							/>
 
-							<span class="validation-messages" ng-show="newAccountForm.lastname.$dirty">
-								<span class="valid-message" ng-show="newAccountForm.lastname.$error.required">Required</span>
+							<span class="validation-messages" ng-cloak ng-show="newAccountForm.lastname.$dirty">
+								<span class="valid-message" ng-cloak ng-show="newAccountForm.lastname.$error.required">Required</span>
 								<span
 									class="valid-message"
-									ng-show="newAccountForm.lastname.$error.minlength && focusField != 'lastname'"
+									ng-cloak ng-show="newAccountForm.lastname.$error.minlength && focusField != 'lastname'"
 								>Too Short</span>
 							</span>
 
@@ -73,7 +73,7 @@
 					<!-- Email Address -->
 					<div class="form-item">
 
-						<!-- <label for="email">Email address</label> -->
+						<label for="email">Email address</label>
 
 						<input
 							ng-model="newAccount.email"
@@ -82,15 +82,15 @@
 							name="mail"
 							type="email"
 							required
-							placeholder="email address"
+							placeholder="name@domain.com"
 						/>
 
 						<!-- Validation Messages -->
-						<span class="validation-messages" ng-show="newAccountForm.mail.$dirty">
-							<span class="valid-message" ng-show="newAccountForm.mail.$error.required">Required</span>
+						<span class="validation-messages" ng-cloak ng-show="newAccountForm.mail.$dirty">
+							<span class="valid-message" ng-cloak ng-show="newAccountForm.mail.$error.required">Required</span>
 							<span
 								class="valid-message"
-								ng-show="newAccountForm.mail.$error.email && focusField != 'email'"
+								ng-cloak ng-show="newAccountForm.mail.$error.email && focusField != 'email'"
 							>Invalid Format</span>
 						</span>
 
@@ -99,7 +99,7 @@
 					<!-- Password -->
 					<div class="form-item">
 
-						<!-- <label for="password">Create a password</label> -->
+						<label for="password">Create a password</label>
 
 						<input
 							ng-model="newAccount.password"
@@ -108,13 +108,13 @@
 							required
 							ng-minlength="6"
 							autocomplete="off"
-							placeholder="create a password"
+							placeholder="use letters, numbers, and symbols"
 						/>
 
 						<!-- Validation Messages -->
-						<span class="validation-messages" ng-show="newAccountForm.secret.$dirty">
-								<span class="valid-message" ng-show="newAccountForm.secret.$error.required">Required</span>
-								<span class="valid-message" ng-show="newAccountForm.secret.$error.minlength">Too Short</span>
+						<span class="validation-messages" ng-cloak ng-show="newAccountForm.secret.$dirty">
+								<span class="valid-message" ng-cloak ng-show="newAccountForm.secret.$error.required">Required</span>
+								<span class="valid-message" ng-cloak ng-show="newAccountForm.secret.$error.minlength">Too Short</span>
 						</span>
 
 					</div>
@@ -122,10 +122,14 @@
 
 					<!-- accept -->
 					<div class="accept-legal">
-						<input
-							ng-model="newAccount.terms"
-							type="checkbox"
-							required /> I accept the <a ng-click="go('/tos', 'slideLeft')">terms of service</a> & <a ng-click="go('/privacy', 'slideLeft')">privacy policy</a>.
+						<label for="legal-checkbox">
+							<input
+								ng-model="newAccount.terms"
+								type="checkbox"
+								id="legal-checkbox"
+								required
+							> I accept the <a ng-click="go('/tos', 'slideLeft')">terms of service</a> &amp; <a ng-click="go('/privacy', 'slideLeft')">privacy policy</a>.
+						</label>
 					</div>
 
 					<!-- Form Action Buttons -->

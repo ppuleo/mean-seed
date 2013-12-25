@@ -7,7 +7,7 @@
     	<!-- Login Form Container-->
         <div class="row">
 
-            <div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-4 large-offset-4">
+            <div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
 
                 <!-- Login Form -->
                 <form name="userAccount" novalidate>
@@ -25,6 +25,9 @@
 
                     <!-- Email Address -->
                     <div class="form-item">
+
+                        <label for="email">Email address</label>
+
                         <input
                             ng-model="userAccount.email"
                             ng-focus="focusField = 'email'"
@@ -32,8 +35,8 @@
                             name="mail"
                             type="email"
                             required
-                            placeholder="email address"
-                        >
+                            placeholder="name@domain.com"
+                        />
 
                         <!-- Email Validation Messages -->
                         <div class="validation-messages" ng-cloak ng-show="userAccount.mail.$dirty">
@@ -44,6 +47,9 @@
 
                     <!-- Password -->
                     <div class="form-item">
+
+                        <label for="password">Password</label>
+
                         <input
                             ng-model="userAccount.password"
                             ng-focus="focusField = 'password'"
@@ -52,8 +58,8 @@
                             type="password"
                             required
                             autocomplete="off"
-                            placeholder="password"
-                        >
+                            placeholder="MyP4ssw0rd!"
+                        />
 
                         <!-- Password Validation Messages -->
                         <div class="validation-messages" ng-cloak ng-show="userAccount.secret.$dirty">
@@ -67,6 +73,8 @@
                     <!-- Login Submit Button -->
                     <div class="action-buttons">
                         <button
+                            type="submit"
+                            name="login"
                             class="form-btn"
                             ng-click="login(userAccount)"
                             ng-disabled="!userAccount.$valid"
