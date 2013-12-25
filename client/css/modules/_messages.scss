@@ -1,17 +1,18 @@
 .system-messages {
-	position: relative;
-	z-index: 100;
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+	z-index: 10;
 	background-size: 24px 24px;
 	background-repeat: no-repeat;
 	background-position: right top;
     font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
-    padding: 11px 20px 13px 20px;
+    padding: 11px 40px 13px 20px;
     border-radius: 0;
-    text-align: center;
+    text-align: left;
     line-height: 130%;
-
     color: #fff;
-    background-color: rgba(200,80,87,1);
 }
 .system-messages h2 {
 	font-weight: 700;
@@ -29,4 +30,12 @@
 .system-messages a:hover,
 .system-messages a:active {
     text-decoration: underline;
+}
+
+.system-messages .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    color: #FFFFFF;
 }

@@ -1,8 +1,9 @@
 <div
-    class="system-messages ng-hide slideDownUp"
+    class="animate alert-box system-messages ng-hide slideDownUp"
     ng-init="appState.message.active=false"
     ng-show="appState.message.active"
+    ng-controller="MessageCtrl"
 >
-    <h2>{{appState.message.title}}</h2>
-    <p ng-bind-html="appState.message.body"></p>
+    <strong>{{appState.message.title}}:</strong> <span ng-bind-html="appState.message.body"></span>
+    <a ng-click="closeMessage()" class="close-button"><i class="fi-x"></i></a>
 </div>

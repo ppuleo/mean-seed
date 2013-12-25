@@ -234,6 +234,19 @@ angular.module('myApp.controllers', [])
 }])
 
 /**
+ * Message Controller
+ */
+.controller('MessageCtrl', ['$scope', 'appState', function ($scope, appState) {
+
+    'use strict';
+
+    $scope.closeMessage = function () {
+
+        appState.message.active = false;
+    };
+}])
+
+/**
  * My Account Page Controller
  */
 .controller('MyaccountCtrl', ['$scope', '$routeParams', '$location', 'People', 'appState', function ($scope, $routeParams, $location, People, appState) {
