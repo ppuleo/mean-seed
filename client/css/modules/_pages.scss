@@ -8,6 +8,11 @@
     padding-top: 50px;
 }
 
+.page-content .row:before,
+.page-content .row:after {
+    content: none; /* Foundation row clearing causing animation bugs in page transitions */
+}
+
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 568px)
