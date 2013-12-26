@@ -1,26 +1,50 @@
-<div class="page forgot-page">
+<div class="page reset-page">
 
 	<section class="page-content">
 
-		<!-- message -->
-		<div class="form-message">
-			<p>Please choose a new password that you aren't likely to forget. A minimum of 6 characters is required.</p>
+		<h1>Reset your password</h1>
+
+		<div class="row">
+
+			<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
+
+				<!-- message -->
+				<p>Please choose a new password. A minimum of 6 characters is required.</p>
+
+				<form name="passwordForm" novalidate>
+
+					<!-- new password -->
+					<div class="form-item">
+
+						<input
+							ng-model="password"
+							name="secret"
+							type="password"
+							required
+							ng-minlength="6"
+							autocomplete="off"
+						>
+
+					</div>
+
+					<!-- Form Action Buttons -->
+					<div class="action-buttons">
+						<button
+							name="submit"
+							type="button"
+							value="submit"
+							class="form-btn submit"
+							ng-click="resetPassword(password)"
+							ng-disabled="!passwordForm.$valid">reset</button>
+							or
+							<a name="back" class="form-btn" ng-click="go('/login','slideRight')"> cancel</a>
+					</div>
+
+				</form>
+
+			</div>
+
 		</div>
-
-		<!-- new password -->
-		<div class="form-item">
-
-			<input
-				name="secret"
-				type="password"
-				required
-				ng-minlength="6"
-				autocomplete="off"
-			>
-
-		</div>
-
-		</form>
 
     </section>
 </div>

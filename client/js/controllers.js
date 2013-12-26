@@ -424,6 +424,40 @@ angular.module('myApp.controllers', [])
 }])
 
 /**
+ * Reset Password Page Controller
+ */
+.controller('ResetCtrl', ['$scope', '$http', '$routeParams', 'appState', function ($scope, $http, $routeParams, appState) {
+
+    'use strict';
+
+    $scope.resetPassword = function (password) {
+
+        var resetRequest = {
+            token: $routeParams.id,
+            password: password
+        };
+
+        $http.post('/api/reset', resetRequest)
+
+        .success(function (data) {
+
+            $scope.resetSuccess = true;
+        })
+
+        .error(function (error) {
+
+            appState.message = {
+                active: true,
+                type: 'alert',
+                title: 'Error',
+                body: 'We were unable to reset your password.'
+            };
+        });
+
+    };
+}])
+
+/**
  * Settings Page Controller
  */
 .controller('SettingsCtrl', ['$scope', 'People', '$http', '$window', function ($scope, People, $http, $window) {

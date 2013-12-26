@@ -107,8 +107,9 @@ angular.module('myApp', [
             controller: 'ResendCtrl',
             access: 'public'
         })
-        .when('/reset', {
+        .when('/reset/:id', {
             templateUrl: 'pages/reset.html',
+            controller: 'ResetCtrl',
             access: 'public'
         })
         .when('/settings', {
