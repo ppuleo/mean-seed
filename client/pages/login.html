@@ -10,7 +10,7 @@
             <div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
 
                 <!-- Login Form -->
-                <form name="userAccount" novalidate>
+                <form name="userAccount" ng-submit="login(userAccount)" novalidate>
 
                     <!-- Validation/Error Messages -->
                     <div>
@@ -74,9 +74,8 @@
                     <div class="action-buttons">
                         <button
                             type="submit"
-                            name="login"
+                            value="submit"
                             class="form-btn"
-                            ng-click="login(userAccount)"
                             ng-disabled="!userAccount.$valid"
                          >login</button> or
 

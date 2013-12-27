@@ -11,7 +11,7 @@
 				<!-- message -->
 				<p>Please choose a new password for <strong>{{resetEmail}}</strong>. A minimum of 6 characters is required.</p>
 
-				<form name="passwordForm" novalidate>
+				<form name="passwordForm" ng-submit="resetPassword(password)" novalidate>
 
 					<!-- new password -->
 					<div class="form-item">
@@ -31,11 +31,9 @@
 					<!-- Form Action Buttons -->
 					<div class="action-buttons">
 						<button
-							name="submit"
-							type="button"
+							type="submit"
 							value="submit"
 							class="form-btn submit"
-							ng-click="resetPassword(password)"
 							ng-disabled="!passwordForm.$valid">reset</button>
 							or
 							<a name="back" class="form-btn" ng-click="$location.url($location.path()); go('/login','slideRight')"> cancel</a>
@@ -61,12 +59,13 @@
 				<p>Thanks, {{resetName}}. Your new password has been saved. Please login to continue.</p>
 
 				<!-- Form Action Buttons -->
-				<form>
+				<form ng-submit="go('/login', 'slideRight');">
 					<div class="action-buttons">
 						<button
-							type="button"
+							type="submit"
+							value="submit"
 							class="form-btn"
-							ng-click="$location.url($location.path()); go('/login', 'slideRight');">OK</button>
+						>OK</button>
 					</div>
 				</form>
 

@@ -10,7 +10,7 @@
     		<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
 
 				<!-- Signup Form -->
-				<form name="newAccountForm" novalidate>
+				<form name="newAccountForm" ng-submit="createAccount()" novalidate>
 
 					<!-- Name Fields -->
 					<div class="row">
@@ -136,12 +136,11 @@
 					<div class="action-buttons">
 
 						<button
-							name="submit"
-							type="button"
+							type="submit"
 							value="sign up"
 							class="form-btn submit"
 							ng-disabled="!newAccountForm.$valid"
-							ng-click="createAccount(newAccount)">sign up</button>
+						>sign up</button>
 							or
 							<a ng-click="go('/login','slideRight')">cancel</a>
 					</div>

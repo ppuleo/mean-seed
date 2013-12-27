@@ -12,7 +12,7 @@
   				<p>Enter your email address and we'll send you a link to reset your password.</p>
 
 				<!-- Reset Password Form -->
-				<form name="userAccount" novalidate>
+				<form name="userAccountForm" ng-submit="requestPasswordReset()" novalidate>
 
 					<!-- Email Address -->
                     <div class="form-item">
@@ -30,21 +30,19 @@
                         />
 
                         <!-- Email Validation Messages -->
-                        <div class="validation-messages" ng-cloak ng-show="userAccount.mail.$dirty">
-                            <span class="valid-message" ng-cloak ng-show="userAccount.mail.$error.required">Email Required</span>
-                            <span class="valid-message animate" ng-cloak ng-show="userAccount.mail.$error.email && focusField != 'email'">Invalid Email Format</span>
+                        <div class="validation-messages" ng-cloak ng-show="userAccountForm.mail.$dirty">
+                            <span class="valid-message" ng-cloak ng-show="userAccountForm.mail.$error.required">Email Required</span>
+                            <span class="valid-message animate" ng-cloak ng-show="userAccountForm.mail.$error.email && focusField != 'email'">Invalid Email Format</span>
                         </div>
                     </div>
 
 					<!-- Form Action Buttons -->
 					<div class="action-buttons">
 						<button
-							name="submit"
-							type="button"
+							type="submit"
 							value="submit"
 							class="form-btn submit"
-							ng-click="requestPasswordReset(userAccount)"
-							ng-disabled="!userAccount.$valid">reset</button>
+							ng-disabled="!userAccountForm.$valid">reset</button>
 							or
 							<a name="back" class="form-btn" ng-click="go('/login','slideRight')"> cancel</a>
 					</div>

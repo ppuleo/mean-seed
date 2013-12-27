@@ -1,20 +1,44 @@
 <div class="page confirm-page">
 
-	<section class="page-content">
+	<section class="page-content" ng-show="confirmSuccess">
 
-		<!-- message -->
-		<div class="form-message">
-			<p>{{message}}</p>
+		<h1>Account Confirmed</h1>
+
+    	<div class="row">
+
+    		<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
+
+				<p>Thanks, {{userAccount.name.first}}. Your account has been confirmed. Please login to continue.</p>
+
+				<div class="action-buttons">
+					<button
+						type="button"
+						value="OK"
+						class="form-btn"
+						ng-click="go('/login','slideRight')"
+					>OK</button>
+				</div>
+
+			</div>
+
 		</div>
 
-		<form>
-			<div class="form-action">
-				<button
-					type="button"
-					class="form-btn"
-					ng-click="go('/login','slideRight')">OK</button>
+	</section>
+
+	<section class="page-content" ng-show="!confirmSuccess">
+
+		<h1>Confirmation Failed</h1>
+
+		<div class="row">
+
+    		<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
+
+				<p>Sorry, Your account could not be confirmed. Please make sure you follow the exact link in the confirmation email. If this problem persists, please contact support.</p>
+
 			</div>
-		</form>
+
+		</div>
+
 	</section>
 
 </div>

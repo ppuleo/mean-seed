@@ -136,28 +136,30 @@ angular.module('myApp.controllers', [])
 
     if ($scope.appState.debug) { console.log('*** ConfirmCtrl: Init ***'); }
 
-    var confirmPath = '/confirm/' + $routeParams.id;
+    var confirmPath = '/api/confirm/' + $routeParams.id;
+    $scope.confirmSuccess = null;
 
     $http.get(confirmPath)
-        .success(function (data, status) {
-            if (typeof(data.name) !== 'undefined') {
 
-                $scope.title = 'Account Confirmed';
-                $scope.username = data.name.first;
-                $scope.message = 'Thank you. Your account has been confirmed.';
-            }
-            else {
+    .success(function (data) {
 
-                $scope.title = 'Error';
-                $scope.message = 'Sorry, we were unable to confirm your account. ';
-                $scope.message += 'Are you sure you signed up?';
-            }
-        })
-        .error(function (err) {
-            $scope.resent = false;
-            $scope.title = 'Error';
-            $scope.message = 'Sorry, we were unable to confirm your account. The server said: ' + err;
-        });
+        if (typeof(data.name) !== 'undefined') {
+
+            $scope.userAccount = data;
+            $scope.confirmSuccess = true;
+        }
+
+        else {
+
+            $scope.confirmSuccess = false;
+        }
+    })
+
+    .error(function (err) {
+        $scope.resent = false;
+        $scope.title = 'Error';
+        $scope.message = 'Sorry, we were unable to confirm your account. The server said: ' + err;
+    });
 }])
 
 /**
@@ -169,13 +171,14 @@ angular.module('myApp.controllers', [])
 
     if ($scope.appState.debug) { console.log('*** ForgotCtrl: Init ***'); }
 
+    $scope.userAccount = {}; // Set up our model
     $scope.resetSuccess = false;
 
-    $scope.requestPasswordReset = function (userAccount) {
+    $scope.requestPasswordReset = function () {
 
         var forgotPath = '/api/forgot';
         var data = {
-            email: userAccount.email
+            email: $scope.userAccount.email
         };
 
         $http.post(forgotPath, data)
@@ -528,7 +531,7 @@ angular.module('myApp.controllers', [])
 /**
  * Signup Page Controller
  */
-.controller('SignupCtrl', ['$scope', 'People', function ($scope, People) {
+.controller('SignupCtrl', ['$scope', 'People', 'appState', function ($scope, People, appState) {
 
     'use strict';
 
@@ -538,34 +541,43 @@ angular.module('myApp.controllers', [])
     $scope.focusField = '';
 
     // Create a person
-    $scope.createAccount = function (account) {
+    $scope.createAccount = function () {
 
-        if (account.$valid) {
+        if ($scope.newAccountForm.$valid) {
 
-            var newPerson = new People(account); // Create a person object
+            var newPerson = new People($scope.newAccount); // Create a person object
+
             newPerson.$save(
 
                 // Success
                 function (response) {
 
                     $scope.newAccount = {}; // Clear the form model
-                    $scope.$location.path('/login');
-                    $scope.appState.message = {
+                    $scope.go('/login', 'slideRight');
+                    appState.message = {
                         active: true,
-                        title: 'Welcome, ' + response.name.first + '!',
-                        body: 'Check your inbox for an email and follow the link. Not there? Check your spam folder.'
+                        title: 'Welcome, ' + response.name.first,
+                        body: 'Check your inbox for a confirmation email and follow the link.'
                     };
                 },
 
                 // Error
                 function (response) {
-                    $scope.appState.message = {
+                    appState.message = {
                         active: true,
                         title: 'Sorry',
                         body: 'There was an error creating your account. The server said: ' + response.message
                     };
                 }
             );
+        }
+
+        else {
+            appState.message = {
+                active: true,
+                title: 'Error',
+                body: 'Please make sure all fields are valid'
+            };
         }
     };
 }]);
