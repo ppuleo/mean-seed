@@ -1,11 +1,19 @@
 .page {
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     color: #555555;
 }
 
 .page-content{
-    padding-top: 50px;
+    padding: 50px 0 1rem;
+}
+
+.page-content h1 {
+    text-align: center;
+}
+
+.page-content .row {
+    overflow: hidden;
 }
 
 .page-content .row:before,
