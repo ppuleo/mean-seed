@@ -181,31 +181,28 @@ angular.module('myApp.controllers', [])
         $http.post(forgotPath, data)
             .success(function (data) {
 
-                if (typeof(data.name) !== 'undefined') {
+                $scope.resetSuccess = true;
+                $scope.resetUser = data;
 
-                    $scope.resetSuccess = true;
-                    $scope.resetUser = data;
-                }
-                else {
-
-                    appState.message = {
-                        active: true,
-                        type: 'alert',
-                        title: 'Error',
-                        body: 'Sorry, we were unable to find your account information.'
-                    };
-                }
             })
-            .error(function (err) {
+            .error(function (error, status) {
+
+                var body;
+
+                if (status === 401) {
+                    body = 'Sorry, we were unable to find your account.';
+                }
+
+                else {
+                    body = 'Sorry, we were unable to send your password reset email. ' + error.message;
+                }
 
                 appState.message = {
                     active: true,
                     type: 'alert',
                     title: 'Error',
-                    body: 'Sorry, we were unable to send your password reset email.'
+                    body: body
                 };
-
-                console.error(err);
 
             });
     };
@@ -426,14 +423,36 @@ angular.module('myApp.controllers', [])
 /**
  * Reset Password Page Controller
  */
-.controller('ResetCtrl', ['$scope', '$http', '$routeParams', 'appState', function ($scope, $http, $routeParams, appState) {
+.controller('ResetCtrl', ['$scope', '$http', 'appState', function ($scope, $http, appState) {
 
     'use strict';
+
+    function checkResetToken() {
+
+        $scope.validToken = false;
+        var token = $scope.$location.search().token;
+
+        $http.get('/api/reset?token=' + token)
+
+        .success(function (data) {
+            $scope.resetEmail = data.email;
+            $scope.validToken = true;
+        })
+
+        .error(function (error) {
+            appState.message = {
+                active: true,
+                type: 'alert',
+                title: 'Access Denied',
+                body: 'Your password reset token is invalid or has expired. Please contact support for assistance.'
+            };
+        });
+    }
 
     $scope.resetPassword = function (password) {
 
         var resetRequest = {
-            token: $routeParams.id,
+            token: $scope.$location.search().token,
             password: password
         };
 
@@ -442,6 +461,7 @@ angular.module('myApp.controllers', [])
         .success(function (data) {
 
             $scope.resetSuccess = true;
+            $scope.resetName = data.name;
         })
 
         .error(function (error) {
@@ -450,11 +470,21 @@ angular.module('myApp.controllers', [])
                 active: true,
                 type: 'alert',
                 title: 'Error',
-                body: 'We were unable to reset your password.'
+                body: 'We were unable to reset your password. ' + error.message
             };
         });
-
     };
+
+    // If we don't find the expected token in the querystring, clear the querystring and go to login
+    if (!$scope.$location.search().token) {
+        $scope.$location.url($scope.$location.path());
+        $scope.go('/login', 'slideRight');
+    }
+
+    // Otherwise check for a valid token
+    else {
+        checkResetToken();
+    }
 }])
 
 /**

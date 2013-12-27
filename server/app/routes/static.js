@@ -11,6 +11,9 @@ module.exports = function (app, passport, envConfig, mailer) {
     // Module dependencies
     var mongoose = require('mongoose');
     var People = mongoose.model('Person');
+    var ResetAuth = mongoose.model('ResetAuth');
+    var hat = require('hat');
+    var rack = hat.rack(256, 16);
 
     /**
      * Base route
@@ -138,4 +141,120 @@ module.exports = function (app, passport, envConfig, mailer) {
         });
     });
 
+    /**
+     * Forgot Password Route
+     */
+    app.post('/api/forgot', function (req, res, next) {
+
+        // Find the person and update.
+        People.findOne({email: req.body.email}, function (err, result) {
+
+            // Successful query
+            if (!err) {
+
+                if (result !== null) {
+
+                    // Create a reset auth key and email it to the user
+                    var person = result;
+                    var resetKey = rack();
+                    var resetUrl = 'http://' + req.headers.host + '/#/reset?token=' + encodeURIComponent(resetKey);
+                    var resetEmail = mailer.resetEmail(resetUrl);
+                    mailer.sendMail(person.email, resetEmail.subject, resetEmail.body);
+
+                    // Store the reset auth key
+                    var resetEntry = {
+                        email: req.body.email,
+                        token: resetKey
+                    };
+
+                    ResetAuth.create(resetEntry, function (err, result) {
+
+                        if (!err) {
+                            res.send({name: person.name});
+                        }
+
+                        else {
+                            res.send(500, {message: 'Server error: ' + err});
+                        }
+                    });
+
+                }
+                else {
+                    res.send(401, {message: 'Account not found'});
+                }
+            }
+
+            // Error
+            else {
+                res.send(500, {message: 'Server error: ' + err});
+            }
+        });
+    });
+
+    /**
+     * Password Reset Get Route
+     */
+    app.get('/api/reset', function (req, res, next) {
+
+        if (req.query.Keys === 0 || !req.query.token) {
+            res.send(401, {message: 'Invalid password reset token.'});
+        }
+
+        else {
+            ResetAuth.findOne({token: req.query.token}, function (err, result) {
+
+                if (!err && result !== null) {
+                    res.send({email: result.email});
+                }
+
+                else {
+                    res.send(401, {message: 'Invalid password reset token.'});
+                }
+            });
+        }
+    });
+
+    /**
+     * Password Reset Post Route
+     */
+    app.post('/api/reset', function (req, res, next) {
+
+        ResetAuth.findOne({token: req.body.token}, function (err, result) {
+
+            if (!err && result !== null) {
+
+                var token = result;
+
+                People.findOneAndUpdate({email: token.email}, {password: req.body.password}).exec(function (err, result) {
+
+                    if (!err) {
+
+                        var person = result;
+                        console.log(person);
+
+                        ResetAuth.findOneAndRemove({'_id': token._id}, function (err, result) {
+
+                            if (!err) {
+                                res.send({name: person.name.full});
+                            }
+
+                            else {
+                                res.send(500, {message: 'Server error: ' + err});
+                            }
+                        });
+
+                    }
+
+                    else {
+                        res.send(500, {message: 'Server error: ' + err});
+                    }
+                });
+            }
+
+            else {
+                res.send(401, {message: 'Invalid password reset token.'});
+            }
+        });
+
+    });
 };

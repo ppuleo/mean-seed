@@ -1,6 +1,6 @@
 <div class="page reset-page">
 
-	<section class="page-content">
+	<section class="page-content" ng-cloak ng-show="!resetSuccess">
 
 		<h1>Reset your password</h1>
 
@@ -9,7 +9,7 @@
 			<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
 
 				<!-- message -->
-				<p>Please choose a new password. A minimum of 6 characters is required.</p>
+				<p>Please choose a new password for <strong>{{resetEmail}}</strong>. A minimum of 6 characters is required.</p>
 
 				<form name="passwordForm" novalidate>
 
@@ -23,6 +23,7 @@
 							required
 							ng-minlength="6"
 							autocomplete="off"
+							ng-disabled="!validToken"
 						>
 
 					</div>
@@ -37,9 +38,36 @@
 							ng-click="resetPassword(password)"
 							ng-disabled="!passwordForm.$valid">reset</button>
 							or
-							<a name="back" class="form-btn" ng-click="go('/login','slideRight')"> cancel</a>
+							<a name="back" class="form-btn" ng-click="$location.url($location.path()); go('/login','slideRight')"> cancel</a>
 					</div>
 
+				</form>
+
+			</div>
+
+		</div>
+
+    </section>
+
+    <section class="page-content animate" ng-cloak ng-show="resetSuccess">
+
+		<h1>Your password has been reset</h1>
+
+		<div class="row">
+
+			<div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
+
+				<!-- message -->
+				<p>Thanks, {{resetName}}. Your new password has been saved. Please login to continue.</p>
+
+				<!-- Form Action Buttons -->
+				<form>
+					<div class="action-buttons">
+						<button
+							type="button"
+							class="form-btn"
+							ng-click="$location.url($location.path()); go('/login', 'slideRight');">OK</button>
+					</div>
 				</form>
 
 			</div>

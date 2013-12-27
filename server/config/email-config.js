@@ -34,6 +34,21 @@ module.exports = {
             body: body
         };
     },
+    resetEmail: function (resetUrl) {
+
+        'use strict';
+
+        var subject = 'Reset your password';
+
+        var body = 'Hello, you requested a link to reset your password for [appname]';
+        body += '\n\nClick the link below to reset your password.';
+        body += '\n\n' + resetUrl;
+
+        return {
+            subject: subject,
+            body: body
+        };
+    },
     sendMail: function (to, subject, text) {
 
         'use strict';

@@ -22,7 +22,8 @@
     "passport-google-oauth": "latest",
     "bcrypt": "latest",
     "ejs": "latest",
-    "nodemailer": "latest"
+    "nodemailer": "latest",
+    "hat": "latest"
   },
   "devDependencies": {
     "grunt": "latest",
