@@ -40,8 +40,9 @@ module.exports = {
 
         var subject = 'Reset your password';
 
-        var body = 'Hello, you requested a link to reset your password for [appname]';
-        body += '\n\nClick the link below to reset your password.';
+        var body = 'Hello, we received a request to send you a link to reset your password for [appname]';
+        body += '\n\nIf you made this request, click the link below to reset your password.';
+        body += 'The link is active for the next 24 hours. If you did not request a password reset, please ignore this email.';
         body += '\n\n' + resetUrl;
 
         return {
