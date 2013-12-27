@@ -225,12 +225,13 @@ module.exports = function (app, passport, envConfig, mailer) {
 
                 var token = result;
 
-                People.findOneAndUpdate({email: token.email}, {password: req.body.password}).exec(function (err, result) {
+                People.findOne({email: token.email}, function (err, result) {
 
                     if (!err) {
 
                         var person = result;
-                        console.log(person);
+                        person.password = req.body.password;
+                        person.save();
 
                         ResetAuth.findOneAndRemove({'_id': token._id}, function (err, result) {
 
