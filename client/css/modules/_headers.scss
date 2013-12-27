@@ -4,46 +4,14 @@
     z-index: 9;
     width: 100%;
     height: 50px;
-    text-transform: uppercase;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-content: center;
-	align-items: center;
     background-color: #222222;
     color: #FFF;
 }
 
 .header-container h1 {
-    text-align: center;
     color: #FFF;
 }
 
-/* header buttons */
-.header-button {
-    cursor: auto;
-	order: 0;
-	flex: 0 1 auto;
-	align-self: center;
-    margin: 0 1rem;
-}
-.header-button button {
-    background-color: transparent;
-    border: none;
-    font-size: 1.5rem;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-	.header-container {
-		// position: -webkit-sticky;
-	}
-
+.header-container .name a:hover {
+    text-decoration: none;
 }
