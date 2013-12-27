@@ -87,7 +87,7 @@ module.exports = function (app, passport, envConfig, mailer) {
     /**
      * Confirm email route
      */
-    app.get('/confirm/:id', function (req, res) {
+    app.get('/api/confirm/:id', function (req, res) {
 
         // Find the person and update.
         People.findOneAndUpdate({_id: req.params.id}, {confirmed: true}, function (err, result) {
