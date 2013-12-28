@@ -8,10 +8,11 @@
     color: #FFF;
 }
 
-.header-container h1 {
+.header-container nav.tab-bar h1 a {
     color: #FFF;
+    font-weight: normal;
 }
 
-.header-container .name a:hover {
+.header-container nav.tab-bar h1 a:hover {
     text-decoration: none;
 }
