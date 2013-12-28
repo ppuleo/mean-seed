@@ -5,6 +5,7 @@
 // Module Dependencies
 var express = require('express');
 var flash = require('connect-flash');
+var MongoStore = require('connect-mongo')(express);
 
 // Export
 module.exports = function (app, envConfig, passport) {
@@ -33,10 +34,17 @@ module.exports = function (app, envConfig, passport) {
 
         // Express app configuration
         app.use(express.cookieParser()); //cookieParser should be above session
-        app.use(express.bodyParser());
+        app.use(express.json());
+        app.use(express.urlencoded());
         app.use(express.methodOverride());
 
-        app.use(express.session({ secret: 'spicy lamb vindaloo' }));
+        // Set up our session and session cookie, store the session for scalability
+        app.use(express.session({
+            key: 'mean.sid',
+            cookie: {path: '/', httpOnly: true, maxAge: null},
+            store: new MongoStore(envConfig.sessionStore),
+            secret: 'spicy lamb vindaloo'
+        }));
 
         app.use(flash());  //connect flash for flash messages
 

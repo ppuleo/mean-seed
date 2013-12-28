@@ -14,7 +14,7 @@ var personSchema = new Schema({
     hashed_password: String, // Password
     confirmed: { type: Boolean, default: false }, // User has confirmed ownership of email address
     role: String, // Access level: user|pro|admin
-    remember: Boolean, // Remember this user using a cookie to bypass login
+    remember: { type: Boolean, default: false }, // Remember this user using a cookie to bypass login
     avatar: [{}], // Array of avatars of mixed-type
     language: { type: String, default: 'English US' }, // User language
     name: {

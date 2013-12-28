@@ -220,15 +220,19 @@ angular.module('myApp.controllers', [])
 
     if ($scope.appState.debug) { console.log('*** LoginCtrl: Init ***'); }
 
-    // Set the page title
-    $scope.appState.page.title = 'Login';
+    $scope.login = function () {
 
-    $scope.login = function (account) {
+        if ($scope.userAccountForm.$valid) {
 
-        if (account.$valid) {
-            var person = { email: account.email, password: account.password };
+            var person = {
+                email: $scope.userAccount.email,
+                password: $scope.userAccount.password,
+                remember: $scope.userAccount.remember
+            };
+
             $http.post('/login', person)
-                .success(function (data, status) {
+
+                .success(function (data) {
 
                     $scope.appState.message = {
                         active: false
@@ -237,6 +241,7 @@ angular.module('myApp.controllers', [])
                     $scope.appState.user = data;
                     $scope.go('/main', 'slideDown');
                 })
+
                 .error(function (err) {
 
                     $scope.appState.message = {

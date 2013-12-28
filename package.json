@@ -1,9 +1,9 @@
 {
-  "name": "rest-mean-seed",
-  "subdomain": "rest-mean-seed",
+  "name": "mean-seed",
+  "subdomain": "mean-seed",
   "description": "A seed project for building RESTful apps with node, mongo, express, and angular",
   "scripts": {
-    "start": "server/node server.js"
+    "start": "node server/server.js"
   },
   "version": "0.0.0-0",
   "private": true,
@@ -23,7 +23,8 @@
     "bcrypt": "latest",
     "ejs": "latest",
     "nodemailer": "latest",
-    "hat": "latest"
+    "hat": "latest",
+    "connect-mongo": "latest"
   },
   "devDependencies": {
     "grunt": "latest",

@@ -10,7 +10,7 @@
             <div class="columns small-10 small-offset-1 medium-6 medium-offset-3 large-6 large-offset-3">
 
                 <!-- Login Form -->
-                <form name="userAccount" ng-submit="login(userAccount)" novalidate>
+                <form name="userAccountForm" ng-submit="login()" novalidate>
 
                     <!-- Validation/Error Messages -->
                     <div>
@@ -39,16 +39,17 @@
                         />
 
                         <!-- Email Validation Messages -->
-                        <div class="validation-messages" ng-cloak ng-show="userAccount.mail.$dirty">
-                            <span class="valid-message" ng-cloak ng-show="userAccount.mail.$error.required">Email Required</span>
-                            <span class="valid-message animate" ng-cloak ng-show="userAccount.mail.$error.email && focusField != 'email'">Invalid Email Format</span>
+                        <div class="validation-messages" ng-cloak ng-show="userAccountForm.mail.$dirty">
+                            <span class="valid-message" ng-cloak ng-show="userAccountForm.mail.$error.required">Email Required</span>
+                            <span class="valid-message animate" ng-cloak ng-show="userAccountForm.mail.$error.email && focusField != 'email'">Invalid Email Format</span>
                         </div>
                     </div>
 
                     <!-- Password -->
                     <div class="form-item">
 
-                        <label for="password">Password</label>
+                        <label for="password">Password <a ng-click="go('/forgot','slideLeft')" class="forgot-link">(I forget)</a>
+                        </label>
 
                         <input
                             ng-model="userAccount.password"
@@ -62,13 +63,13 @@
                         />
 
                         <!-- Password Validation Messages -->
-                        <div class="validation-messages" ng-cloak ng-show="userAccount.secret.$dirty">
-                            <span class="valid-message" ng-cloak ng-show="userAccount.secret.$error.required">Password Required</span>
+                        <div class="validation-messages" ng-cloak ng-show="userAccountForm.secret.$dirty">
+                            <span class="valid-message" ng-cloak ng-show="userAccountForm.secret.$error.required">Password Required</span>
                         </div>
                     </div>
 
-        			<!-- Password Reset Link -->
-                    <a ng-click="go('/forgot','slideLeft')" class="forgot-link">forgot your password?</a>
+                    <!-- Remember Me -->
+                    <label class="remember-check"><input type="checkbox" name="rem" ng-model="userAccount.remember" /> remember me on this computer</label>
 
                     <!-- Login Submit Button -->
                     <div class="action-buttons">
@@ -76,7 +77,7 @@
                             type="submit"
                             value="submit"
                             class="form-btn"
-                            ng-disabled="!userAccount.$valid"
+                            ng-disabled="!userAccountForm.$valid"
                          >login</button> or
 
                         <a class="register signup-button" ng-click="go('/signup','slideLeft')">Sign Up</a>

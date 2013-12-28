@@ -21,7 +21,7 @@ var auth = require('./config/authorization'); // auth middleware
 var mongoose = require('mongoose'); // mongoose
 
 // Bootstrap db connection
-mongoose.connect(envConfig.db);
+mongoose.connect(envConfig.db.url, envConfig.db.options);
 
 // Load models
 var modelsPath = __dirname + '/app/models';

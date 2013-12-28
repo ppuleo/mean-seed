@@ -12,7 +12,14 @@ var rootPath = path.normalize(__dirname + '/../..');
 module.exports = {
     development: {
         name: 'development',
-        db: 'mongodb://localhost/meanseed-dev',
+        db: {
+            url: 'mongodb://localhost/meanseed-dev',
+            options: {}
+        },
+        sessionStore: {
+            url: 'mongodb://localhost/meanseed-dev',
+            options: {}
+        },
         serverRoot: rootPath + '/server',
         clientRoot: rootPath + '/client',
         app: {
@@ -20,8 +27,14 @@ module.exports = {
         }
     },
     staging: {
-        name: 'staging',
-        db: '', // Your staging db connection string
+        db: {
+            url: '', // Your staging db connection string
+            options: {} // Your staging db options
+        },
+        sessionStore: {
+            url: '', // Your staging session store connection string
+            options: {} // Your staging session store options
+        },
         serverRoot: rootPath + '/server',
         clientRoot: rootPath + '/client',
         app: {
@@ -29,8 +42,14 @@ module.exports = {
         }
     },
     production: {
-        name: 'production',
-        db: '', // Your production db connection string
+        db: {
+            url: '', // Your production db connection string
+            options: {} // Your production db options
+        },
+        sessionStore: {
+            url: '', // Your production session store connection string
+            options: {} // Your production session store options
+        },
         serverRoot: rootPath + '/server',
         clientRoot: rootPath + '/client',
         app: {

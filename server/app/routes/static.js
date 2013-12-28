@@ -66,6 +66,10 @@ module.exports = function (app, passport, envConfig, mailer) {
                     return next('Login error: Passport error: ' + err);
                 }
 
+                if (req.body.remember) {
+                    req.session.cookie.maxAge = 1000 * 60 * 60 * 24 * 14;
+                }
+
                 return res.send(req.user);
             });
         })(req, res, next);
