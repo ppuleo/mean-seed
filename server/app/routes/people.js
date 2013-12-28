@@ -55,7 +55,7 @@ module.exports = function (app, auth, mailer) {
 
         // Everyone else
         else {
-            return People.find(query, 'name name.full avatar').populate(options).exec(function (err, result) {
+            return People.find(query, 'name name.full avatar').exec(function (err, result) {
 
                 // Successful query
                 if (!err) {
