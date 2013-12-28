@@ -38,7 +38,9 @@ angular.module('myApp', [
             $window.history.back();
         }
         else {
-            $location.path(path);
+            if ($location.path() !== path) { // Don't bother if we're already here...
+                $location.path(path);
+            }
         }
     };
 
