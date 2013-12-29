@@ -1,0 +1,37 @@
+.homepage-hero {
+    background: url(../assets/img/marquee-stars.svg) #074e68;
+    height: 500px;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.homepage-hero h1 {
+    text-align: left;
+    font-weight: 400;
+    color: #FFF;
+}
+
+.homepage-hero h2 {
+    color: #CCC;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.homepage-hero .hero-image {
+    text-align: center;
+}
+
+@media #{$medium-up} {
+    .homepage-hero .hero-image img {
+        height: 450px;
+        width: auto;
+    }
+
+    .homepage-hero .hero-image {
+        width: 50%;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+}
