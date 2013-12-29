@@ -45,4 +45,14 @@ angular.module('myApp.services', [])
         title: 'Welcome'
     };
 
+    // Canvas state
+    this.menu = {
+        isVisible: false
+    };
+
+    // Canvas toggle
+    this.toggleMenu = function () {
+        this.menu.isVisible = !this.menu.isVisible;
+    };
+
 }]);

@@ -1,12 +1,57 @@
 <div class="header-container">
 
-    <nav class="tab-bar">
-        <section class="left tab-bar-section">
-            <h1>
-                <a ng-click="go('/', 'slideRight')">mean seed</a>
-            </h1>
+    <!-- Mobile Nav Bar -->
+    <nav class="tab-bar show-for-small">
+        <a ng-click="appState.toggleMenu()" class="menu-icon"><span>mean seed</span></a>
+    </nav>
+
+    <!-- Standard Nav Bar -->
+    <nav class="top-bar hide-for-small" data-topbar="">
+        <ul class="title-area">
+            <li class="name">
+                <h1><a ng-click="go('/', 'slideRight')">mean seed</a></h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <ul class="right">
+                <li class="divider"></li>
+                <li class="has-dropdown not-click">
+                    <a href="" class="">Area 1</a>
+                    <ul class="dropdown">
+                        <li><a href="">Page 1</a></li>
+                        <li><a href="">Page 2</a></li>
+                        <li><a href="">Page 3</a></li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+                <li class="has-dropdown not-click">
+                    <a href="" class="">Area 2</a>
+                    <ul class="dropdown">
+                        <li><a href="">Page 1</a></li>
+                        <li><a href="">Page 2</a></li>
+                        <li><a href="">Page 3</a></li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+                <li class="has-dropdown not-click">
+                    <a href="" class="">Area 3</a>
+                    <ul class="dropdown">
+                        <li><a href="">Page 1</a></li>
+                        <li><a href="">Page 2</a></li>
+                        <li><a href="">Page 3</a></li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="" class="">Link</a>
+                </li>
+                <li class="divider"></li>
+                <li class="has-form">
+                    <a ng-click="go('/login', 'slideLeft')" class="small button">login</a>
+                </li>
+            </ul>
         </section>
-        <section class="right-small"><a class=" menu-icon"><span></span></a></section>
     </nav>
 
 </div>

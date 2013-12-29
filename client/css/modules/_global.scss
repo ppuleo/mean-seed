@@ -57,15 +57,30 @@ h1 {
     font-family: "Open Sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
 }
 
-/* partial containers */
-.application-container {
+.off-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
+    transition: all 200ms ease;
+    transform: translate3d(0px, 0, 0);
+}
+
+.off-canvas.uncover {
+    transform: translate3d(250px, 0, 0);
+}
+
+/* partial containers */
+.pages-container {
+    height: 100%;
+    width: 100%;
+    background-color: #FFF;
     position: relative;
     transform: translate3d(0,0,0);
 }
 
-.application-view {
+.page-wrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -74,4 +89,8 @@ h1 {
     overflow-y: auto;
     -webkit-backface-visibility: hidden;
     perspective: 1000;
+}
+
+.ios .page-wrapper {
+    overflow-y: visible;
 }

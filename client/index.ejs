@@ -1,55 +1,66 @@
 <!doctype html>
 <html lang="en" ng-controller="AppCtrl" ng-app="myApp">
 <head>
-  <meta charset="utf-8">
-  <title>MEAN Seed App</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <title>MEAN Seed App</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-  <link type="text/css" media="all" rel="stylesheet" href="css/style.css"/>
+    <link type="text/css" media="all" rel="stylesheet" href="css/style.css"/>
 
-  <link rel="shortcut icon" href="assets/favicon.ico">
-  <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-touch-icon-114x114.png">
 
-  <!-- Provide authentication status for initial load -->
-  <script>window.myApp={user:<%-JSON.stringify(user)%>};</script>
+    <!-- Provide authentication status for initial load -->
+    <script>window.myApp={user:<%-JSON.stringify(user)%>};</script>
 
 </head>
-<body>
+<body ng-class="{ios: appState.platform.ios()==true}">
 
-  <!-- Header -->
-  <div ng-include="'views/header.html'"></div>
+    <!-- System Messages -->
+    <div ng-include="'views/messages.html'"></div>
 
-  <!-- System Messages -->
-  <div ng-include="'views/messages.html'"></div>
+    <!-- Menu -->
+    <aside class="off-canvas-menu">
+        <ul class="off-canvas-list">
+            <li><label>Foundation</label></li>
+        </ul>
+    </aside>
 
-  <!-- App Content Container -->
-  <div class="application-container">
-    <div ng-view class="application-view" ng-class="pageAnimationClass"></div>
-  </div>
+    <!-- Off-canvas wrapper -->
+    <div class="off-canvas" ng-class="{uncover: appState.menu.isVisible==true}">
 
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular-sanitize/angular-sanitize.js"></script>
-  <script src="lib/angular-route/angular-route.js"></script>
-  <script src="lib/angular-resource/angular-resource.js"></script>
-  <script src="lib/angular-animate/angular-animate.js"></script>
-  <script src="lib/fastclick/lib/fastclick.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
-  <script src="js/app.js"></script>
+        <!-- Header -->
+        <div ng-include="'views/header.html'"></div>
 
-  <!-- Inject the live reload script if this is running in the dev environment -->
-  <% if (env === 'development') { %>
+        <!-- Page Container -->
+        <div class="pages-container">
+            <div ng-view class="page-wrapper" ng-class="pageAnimationClass"></div>
+        </div>
+
+    </div>
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/fastclick/lib/fastclick.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Inject the live reload script if this is running in the dev environment -->
+    <% if (env === 'development') { %>
     <script src="http://localhost:35729/livereload.js"></script>
-  <% } %>
-
+    <% } %>
 </body>
 </html>
