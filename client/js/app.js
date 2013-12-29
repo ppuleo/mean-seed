@@ -80,6 +80,10 @@ angular.module('myApp', [
             templateUrl: 'pages/forgotconfirm.html',
             access: 'public'
         })
+        .when('/home', {
+            templateUrl: 'pages/home.html',
+            access: 'public'
+        })
         .when('/login', {
             templateUrl: 'pages/login.html',
             controller: 'LoginCtrl',
@@ -128,5 +132,5 @@ angular.module('myApp', [
             templateUrl: 'pages/tos.html',
             access: 'public'
         })
-        .otherwise({ redirectTo: '/main'});
+        .otherwise({ redirectTo: '/home'});
 }]);
