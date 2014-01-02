@@ -46,7 +46,7 @@ angular.module('myApp.controllers', [])
 /**
  * Application Controller
  */
-.controller('AppCtrl', ['$scope', '$route', '$timeout', '$window', '$q', 'appState', 'People', function ($scope, $route, $timeout, $window, $q, appState, People) {
+.controller('AppCtrl', ['$scope', '$route', '$timeout', '$window', '$q', '$http', 'appState', 'People', function ($scope, $route, $timeout, $window, $q, $http, appState, People) {
 
     'use strict';
 
@@ -121,6 +121,40 @@ angular.module('myApp.controllers', [])
         );
 
         return deferred.promise;
+    };
+
+    /**
+     * Ends the current login session
+     * @return undefined
+     */
+    $scope.logout = function () {
+
+        $http.get('/logout')
+
+            .success(function (data, status) {
+                delete $window.myApp.user;
+                delete $scope.appState.user;
+                $window.myApp.user = {
+                    authenticated: false
+                };
+                $scope.go('/home', 'crossFade');
+                $scope.appState.message = {
+                    active: true,
+                    type: 'banner',
+                    title: 'Signed Out',
+                    body: data.message
+                };
+            })
+
+            .error(function (err) {
+                $scope.go('/login', 'slideUp');
+                $scope.appState.message = {
+                    active: true,
+                    type: 'alert',
+                    title: 'Error',
+                    body: err
+                };
+            });
     };
 
     // Initialize the app
@@ -504,33 +538,7 @@ angular.module('myApp.controllers', [])
 
     if ($scope.appState.debug) { console.log('*** SettingsCtrl: Init ***'); }
 
-    $scope.logout = function () {
 
-        $http.get('/logout')
-            .success(function (data, status) {
-                delete $window.myApp.user;
-                delete $scope.appState.user;
-                $window.myApp.user = {
-                    authenticated: false
-                };
-                $scope.go('/login', 'slideUp');
-                $scope.appState.message = {
-                    active: true,
-                    type: 'banner',
-                    title: 'Signed Out',
-                    body: data.message
-                };
-            })
-            .error(function (err) {
-                $scope.go('/login', 'slideUp');
-                $scope.appState.message = {
-                    active: true,
-                    type: 'alert',
-                    title: 'Error',
-                    body: err
-                };
-            });
-    };
 }])
 
 /**
