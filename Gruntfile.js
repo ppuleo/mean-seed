@@ -89,7 +89,8 @@ module.exports = function (grunt) {
             devFiles: {
                 files: [
                     '<%= paths.client %>/**',
-                    '!<%= paths.client %>/css/*.scss'
+                    '!<%= paths.client %>/css/*.scss',
+                    '!<%= paths.client %>/css/*/*.scss'
                 ],
                 options: {
                     nospawn: false,
