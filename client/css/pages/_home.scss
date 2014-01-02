@@ -30,10 +30,11 @@
     padding: 1rem 2rem;
 }
 
+.homepage-content {
+    padding-top: 2rem;
+}
+
 @media #{$medium-up} {
-    .homepage-hero {
-        height: auto;
-    }
 
     .homepage-hero h2 {
         margin-bottom: 2rem;
@@ -49,4 +50,12 @@
         height: 100%;
 
     }
+}
+
+@media #{$large-up} {
+
+    .homepage-hero {
+        height: 500px;
+    }
+
 }
