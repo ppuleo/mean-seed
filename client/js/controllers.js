@@ -141,7 +141,7 @@ angular.module('myApp.controllers', [])
                 $scope.appState.message = {
                     active: true,
                     type: 'banner',
-                    title: 'Signed Out',
+                    title: 'Goodbye',
                     body: data.message
                 };
             })
