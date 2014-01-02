@@ -273,6 +273,7 @@ angular.module('myApp.controllers', [])
                     };
                     $window.myApp.user.authenticated = true;
                     $scope.appState.user = data;
+                    $scope.appState.user.authenticated = true;
                     $scope.go('/main', 'slideDown');
                 })
 
