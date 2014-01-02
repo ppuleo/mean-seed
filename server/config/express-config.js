@@ -40,10 +40,10 @@ module.exports = function (app, envConfig, passport) {
 
         // Set up our session and session cookie, store the session for scalability
         app.use(express.session({
-            key: 'mean.sid',
+            key: 'mean.sid', // TODO: Add your desired key here
             cookie: {path: '/', httpOnly: true, maxAge: null},
             store: new MongoStore(envConfig.sessionStore),
-            secret: 'spicy lamb vindaloo'
+            secret: 'spicy lamb vindaloo' // TODO: Add your desired secret here
         }));
 
         app.use(flash());  //connect flash for flash messages

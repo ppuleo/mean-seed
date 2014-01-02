@@ -10,6 +10,9 @@ var rootPath = path.normalize(__dirname + '/../..');
 
 // Export
 module.exports = {
+
+    // The dev environment specifies a local mongoDB server. Replace the db and sessionStore properties
+    // with your own remote mongoDB connection strings if desired.
     development: {
         name: 'development',
         db: {
