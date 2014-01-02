@@ -1,6 +1,5 @@
 .homepage-hero {
-    background: url(../assets/img/marquee-stars.svg) #074e68;
-    height: 500px;
+    background: url(../assets/img/marquee-stars.svg) #074e68 repeat-x;
     padding: 2rem 1rem;
     position: relative;
 }
@@ -15,24 +14,39 @@
 .homepage-hero h2 {
     color: #CCC;
     text-align: left;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 400;
+}
+
+.homepage-hero a {
+    color: #FFF;
 }
 
 .homepage-hero .hero-image {
     text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem 2rem;
 }
 
 @media #{$medium-up} {
+    .homepage-hero {
+        height: auto;
+    }
+
+    .homepage-hero h2 {
+        margin-bottom: 2rem;
+    }
+
     .homepage-hero .hero-image img {
-        height: 450px;
+        height: 100%;
         width: auto;
     }
 
     .homepage-hero .hero-image {
         width: 50%;
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
+        height: 100%;
+
     }
 }
