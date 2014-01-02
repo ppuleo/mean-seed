@@ -9,7 +9,7 @@
     <nav class="top-bar hide-for-small" data-topbar="">
         <ul class="title-area">
             <li class="name">
-                <h1><a ng-click="go('/home', 'slideRight')">mean seed</a></h1>
+                <h1><a ng-click="go('/home', 'crossFade')">mean seed</a></h1>
             </li>
         </ul>
 
@@ -47,8 +47,15 @@
                     <a href="" class="">Link</a>
                 </li>
                 <li class="divider"></li>
-                <li class="has-form">
-                    <a ng-click="go('/login', 'slideLeft')" class="small button">login</a>
+                <li ng-if="!appState.user.authenticated" class="has-form">
+                    <a ng-click="go('/login', 'crossFade')" class="small button">login</a>
+                </li>
+                <li ng-if="appState.user.authenticated" class="has-dropdown not-click">
+                    <a>{{appState.user.name.first}}</a>
+                    <ul class="dropdown">
+                        <li><a ng-click="go('/profile', 'crossFade')">My Profile</a></li>
+                        <li><a ng-click="logout()">Logout</a></li>
+                    </ul>
                 </li>
             </ul>
         </section>
