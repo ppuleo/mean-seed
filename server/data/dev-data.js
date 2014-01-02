@@ -13,40 +13,40 @@ module.exports = function () {
     var testPeople = [
         {
             'confirmed': true,
-            'email': 'bilbo@theshire.me',
+            'email': 'jen@example.com',
             'hashed_password': '$2a$10$ZDNNHNCY2liOe64L3Gi11uh06FiFMrgCeAFtzNbChNeFqPZxCzWBm',
             '_id': '5217dacfaba9e56d48000001',
             'role': 'admin',
             'language': 'English US',
             'name': {
-                'first': 'Bilbo',
-                'last': 'Baggins'
+                'first': 'Jen',
+                'last': 'Barber'
             },
             'avatar': []
         },
         {
             'confirmed': true,
-            'email': 'frodo@theshire.me',
+            'email': 'moss@example.com',
             'hashed_password': '$2a$10$ZDNNHNCY2liOe64L3Gi11uh06FiFMrgCeAFtzNbChNeFqPZxCzWBm',
             '_id': '5217dacfaba9e56d48000004',
             'role': 'admin',
             'language': 'English US',
             'name': {
-                'first': 'Frodo',
-                'last': 'Baggins'
+                'first': 'Maurice',
+                'last': 'Moss'
             },
             'avatar': []
         },
         {
             'confirmed': true,
-            'email': 'samwise@theshire.me',
+            'email': 'roy@example.com',
             'hashed_password': '$2a$10$ZDNNHNCY2liOe64L3Gi11uh06FiFMrgCeAFtzNbChNeFqPZxCzWBm',
             '_id': '5217dacfaba9e56d48000003',
             'role': 'admin',
             'language': 'English US',
             'name': {
-                'first': 'Sam',
-                'last': 'Gamgee'
+                'first': 'Roy',
+                'last': 'Trenneman'
             },
             'avatar': []
         }
@@ -61,13 +61,13 @@ module.exports = function () {
                     console.log(err);
                 }
 
-                // If the test user isn't found...
+
                 else {
 
-                    if (result === null) {
+                    if (result === null) { // If the test user isn't found...
                         createUser(testPeople[index]);
                     }
-                    else {
+                    else { // Otherwise, recreate it
                         People.findOneAndRemove({'_id': result._id}, function (err, result) {
                             createUser(testPeople[index]);
                         });
