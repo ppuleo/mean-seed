@@ -33,4 +33,8 @@ client/lib/
 # Mongo DB
 server/data/mongodb/*
 
+# Build Directories
+dist/
+.tmp/
+
 !.gitkeep
