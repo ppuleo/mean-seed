@@ -49,18 +49,47 @@ module.exports = function (grunt) {
             }
         },
         concurrent: {
-            target: {
+            dev: {
                 tasks: ['nodemon:dev', 'watch'],
+                options: {
+                    logConcurrentOutput: true
+                }
+            },
+            dist: {
+                tasks: ['nodemon:dist'],
                 options: {
                     logConcurrentOutput: true
                 }
             }
         },
         copy: {
-
+            dist: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= paths.client %>',
+                    dest: '<%= paths.dist %>',
+                    src: [
+                        '*.{ico,txt}',
+                        '.htaccess',
+                        'assets/**',
+                        'pages/**',
+                        'views/**',
+                        'index.ejs'
+                    ]
+                }]
+            },
         },
         cssmin: {
-            report: 'gzip'
+            options: {
+                 report: 'gzip'
+            },
+            minify: {
+                expand: true,
+                cwd: '<%= paths.client %>/css',
+                src: ['style.css'],
+                dest: '<%= paths.dist %>/css'
+            }
         },
         nodemon: {
             dev: {
@@ -71,11 +100,20 @@ module.exports = function (grunt) {
                     },
                     watchedFolders: ['<%= paths.server %>/app', '<%= paths.server %>/config']
                 }
+            },
+            dist: {
+                options: {
+                    file: '<%= paths.server %>/server.js',
+                    env: {
+                        NODE_ENV: 'staging'
+                    },
+                    watchedFolders: ['<%= paths.server %>/app', '<%= paths.server %>/config']
+                }
             }
         },
         sass: {
             dev: {
-                loadPath: '<%= paths.client',
+                loadPath: '<%= paths.client %>',
                 files: { '<%= paths.client %>/css/style.css': '<%= paths.client %>/css/style.scss' }
             }
         },
@@ -83,6 +121,19 @@ module.exports = function (grunt) {
             options: {
                 // the banner is inserted at the top of the output
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+            }
+        },
+        usemin: {
+            html: ['<%= paths.dist %>/*.ejs'],
+            css: ['<%= paths.dist %>/styles/*.css'],
+            options: {
+                dirs: ['<%= paths.dist %>']
+            }
+        },
+        useminPrepare: { // Read the build comments in the source file(s)
+            html: '<%= paths.client %>/index.ejs',
+            options: {
+                dest: '<%= paths.dist %>'
             }
         },
         watch: {
@@ -121,12 +172,20 @@ module.exports = function (grunt) {
     // Server Task
     grunt.registerTask('server', function (target) {
 
-        grunt.task.run([ // Dev server
-            'clean:dev',
-            'sass:dev',
-            'autoprefixer',
-            'concurrent'
-        ]);
+        if (target === 'dist') { // Distribution Server
+            grunt.task.run([
+                'build',
+                'nodemon:dist'
+            ]);
+        }
+        else {
+            grunt.task.run([ // Dev server
+                'clean:dev',
+                'sass:dev',
+                'autoprefixer',
+                'concurrent'
+            ]);
+        }
 
     });
 
@@ -136,11 +195,15 @@ module.exports = function (grunt) {
         grunt.log.write('Mean Seed Build ' + new Date() + '\n');
 
         grunt.task.run([
+            'sass:dev', // Compile the css
+            'autoprefixer',
             'clean:dist', // Empty the dist directory
+            'useminPrepare', // Prep for min/concat by reading all usemin comments for config
             'concat', // Run the concatenate task
             'cssmin', // Run the css minify task
             'uglify', // Run the js minify task
             'copy:dist', // Copy all relevant files to the build directory
+            'usemin' // Replace references to non-minified/concatened resources with the new references
         ]);
 
     });
