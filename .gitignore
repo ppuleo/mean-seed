@@ -37,4 +37,7 @@ server/data/mongodb/*
 dist/
 .tmp/
 
+# Generated Files
+client/css/style.css
+
 !.gitkeep
