@@ -44,7 +44,12 @@ select {
     margin: 0 .5rem;
 }
 
+a.button {
+    background-color: #d09d01;
+}
+
 a.button:hover,
 a.button:active {
     text-decoration: none;
+    background-color: #b18601;
 }

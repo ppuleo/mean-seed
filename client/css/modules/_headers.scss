@@ -25,3 +25,12 @@
 .header-container nav.tab-bar h1 a:hover {
     text-decoration: none;
 }
+
+.header-container .top-bar-section ul li > a.button {
+    background-color: #d09d01;
+}
+
+.header-container .top-bar-section ul li > a.button:hover,
+.header-container .top-bar-section ul li > a.button:active {
+    background-color: #b18601;
+}

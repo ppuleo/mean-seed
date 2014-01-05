@@ -1,5 +1,5 @@
 .homepage-hero {
-    background: url(../assets/img/marquee-stars.svg) #074e68 repeat-x;
+    background: url(../assets/img/mean-seed-hero-bg.jpg) #2d6f4f repeat;
     padding: 2rem 1rem;
     position: relative;
 }
@@ -28,6 +28,13 @@
     top: 0;
     right: 0;
     padding: 1rem 2rem;
+}
+
+.homepage-gitinfo {
+    background-color: #2a664b;
+    padding: 1.25rem 0;
+    color: #FFF;
+    font-size: .75rem;
 }
 
 .homepage-content {
