@@ -47,4 +47,4 @@ The MEAN seed application is self-contained. The REST service and the client app
     ./startdev.sh
 
 ## Credits
-The MEAN Seed was developed by Filip Adamczyk, Ericson de Jesus, and Phil Puleo.
+The MEAN Seed was developed by Phil Puleo, [Filip Adamczyk](https://github.com/filbot), and [Ericson de Jesus](https://github.com/ericsond).
