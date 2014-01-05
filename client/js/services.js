@@ -32,6 +32,12 @@ angular.module('myApp.services', [])
     // Debugging messages
     this.debug = false;
 
+    this.platform = {
+        ios: function () {
+            return (/(iPad|iPhone|iPod)/g).test(navigator.userAgent);
+        }
+    };
+
     // System Messages
     this.message = {
         active: false,
