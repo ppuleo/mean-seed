@@ -82,7 +82,7 @@ module.exports = function (grunt) {
         },
         cssmin: {
             options: {
-                 report: 'gzip'
+                report: 'gzip'
             },
             minify: {
                 expand: true,
