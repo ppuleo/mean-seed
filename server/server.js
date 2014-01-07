@@ -10,6 +10,7 @@ var passport = require('passport');
 
 // Define the environment based on arguments passed in the server task
 var env = process.env.NODE_ENV || 'development';
+console.log('Environment is ' + env);
 
 /**
  * Main Application Entry
@@ -21,7 +22,15 @@ var auth = require('./config/authorization'); // auth middleware
 var mongoose = require('mongoose'); // mongoose
 
 // Bootstrap db connection
-mongoose.connect(envConfig.db.url, envConfig.db.options);
+mongoose.connect(envConfig.db.url, envConfig.db.options, function (err) {
+
+    if (err) {
+        console.log('Database connection error: ' + err);
+    }
+    else {
+        console.log('Databases connected successfully.');
+    }
+});
 
 // Load models
 var modelsPath = __dirname + '/app/models';
@@ -31,7 +40,6 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 
 // If the dev environment is invoked, load some dummy data
 if (env === 'development') {
-    console.log('Environment is "development"');
     require('./data/dev-data')();
 }
 
