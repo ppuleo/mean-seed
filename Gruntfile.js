@@ -64,18 +64,37 @@ module.exports = function (grunt) {
         },
         copy: {
             dist: {
-                files: [{
+                files: [{ // Client Files
                     expand: true,
                     dot: true,
                     cwd: '<%= paths.client %>',
-                    dest: '<%= paths.dist %>',
+                    dest: '<%= paths.dist %>/client',
                     src: [
                         '*.{ico,txt}',
-                        '.htaccess',
                         'assets/**',
                         'pages/**',
                         'views/**',
                         'index.ejs'
+                    ]
+                },
+                { // Server Files
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= paths.server %>',
+                    dest: '<%= paths.dist %>/server',
+                    src: [
+                        'app/**',
+                        'config/**',
+                        'logs/',
+                        'server.js',
+                    ]
+                },
+                { // Root Files
+                    expand: true,
+                    dot: true,
+                    dest: '<%= paths.dist %>',
+                    src: [
+                        'package.json',
                     ]
                 }]
             },
@@ -88,7 +107,7 @@ module.exports = function (grunt) {
                 expand: true,
                 cwd: '<%= paths.client %>/css',
                 src: ['style.css'],
-                dest: '<%= paths.dist %>/css'
+                dest: '<%= paths.dist %>/client/css'
             }
         },
         nodemon: {
@@ -124,16 +143,16 @@ module.exports = function (grunt) {
             }
         },
         usemin: {
-            html: ['<%= paths.dist %>/*.ejs'],
-            css: ['<%= paths.dist %>/styles/*.css'],
+            html: ['<%= paths.dist %>/client/*.ejs'],
+            css: ['<%= paths.dist %>/client/styles/*.css'],
             options: {
-                dirs: ['<%= paths.dist %>']
+                dirs: ['<%= paths.dist %>/client']
             }
         },
         useminPrepare: { // Read the build comments in the source file(s)
             html: '<%= paths.client %>/index.ejs',
             options: {
-                dest: '<%= paths.dist %>'
+                dest: '<%= paths.dist %>/client'
             }
         },
         watch: {
