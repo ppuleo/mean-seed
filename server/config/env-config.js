@@ -21,7 +21,8 @@ module.exports = {
         },
         sessionStore: {
             url: 'mongodb://localhost/meanseed-dev',
-            options: {}
+            username: '',
+            password: ''
         },
         serverRoot: rootPath + '/server',
         clientRoot: rootPath + '/client',
@@ -36,7 +37,8 @@ module.exports = {
         },
         sessionStore: {
             url: '', // Your staging session store connection string
-            options: {} // Your staging session store options
+            username: '', // Your staging session store username
+            password: '' // Your staging session store password
         },
         serverRoot: rootPath + '/server',
         clientRoot: rootPath + '/client',
@@ -51,7 +53,8 @@ module.exports = {
         },
         sessionStore: {
             url: '', // Your production session store connection string
-            options: {} // Your production session store options
+            username: '', // Your production session store username
+            password: '' // Your production session store password
         },
         serverRoot: rootPath + '/server',
         clientRoot: rootPath + '/client',
