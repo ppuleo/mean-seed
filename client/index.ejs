@@ -26,11 +26,7 @@
     <div ng-include="'views/messages.html'"></div>
 
     <!-- Menu -->
-    <aside class="off-canvas-menu">
-        <ul class="off-canvas-list">
-            <li><label>Foundation</label></li>
-        </ul>
-    </aside>
+    <div ng-include="'views/menu.html'" class="off-canvas-menu"></div>
 
     <!-- Off-canvas wrapper -->
     <div class="off-canvas" ng-class="{uncover: appState.menu.isVisible==true}">
