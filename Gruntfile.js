@@ -122,11 +122,11 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    file: '<%= paths.server %>/server.js',
+                    file: '<%= paths.dist %>/server/server.js',
                     env: {
                         NODE_ENV: 'staging'
                     },
-                    watchedFolders: ['<%= paths.server %>/app', '<%= paths.server %>/config']
+                    watchedFolders: ['<%= paths.dist %>/server/app', '<%= paths.dist %>/server/config']
                 }
             }
         },

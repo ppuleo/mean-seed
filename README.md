@@ -14,6 +14,7 @@ A __single page app__ seed project for building RESTful apps with node, mongo, e
 * Authentication with cookie-based login sessions, 'remember me' option for long sessions
 * Expandable authorization system using page and route-level role checking
 * Easy integration with hosted mongoDB services
+* Grunt tasks to build and test distribution versions
 
 ## How to Use
 As a seed project, the MEAN Seed application should be easy to set up and modify. Start by making sure you have the prerequisites installed then clone or download the project, enter a few configuration options, and launch the dev environment.
