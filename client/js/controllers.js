@@ -315,6 +315,15 @@ angular.module('myApp.controllers', [])
 }])
 
 /**
+ * Menu Controller
+ */
+.controller('MenuCtrl', ['$scope', 'appState', function ($scope, appState) {
+
+    'use strict';
+
+}])
+
+/**
  * Message Controller
  */
 .controller('MessageCtrl', ['$scope', 'appState', function ($scope, appState) {
