@@ -147,7 +147,7 @@ angular.module('myApp.controllers', [])
             })
 
             .error(function (err) {
-                $scope.go('/login', 'slideUp');
+                $scope.go('/login', 'crossFade');
                 $scope.appState.message = {
                     active: true,
                     type: 'alert',
@@ -274,7 +274,7 @@ angular.module('myApp.controllers', [])
                     $window.myApp.user.authenticated = true;
                     $scope.appState.user = data;
                     $scope.appState.user.authenticated = true;
-                    $scope.go('/main', 'slideDown');
+                    $scope.go('/main', 'crossFade');
                 })
 
                 .error(function (err) {
