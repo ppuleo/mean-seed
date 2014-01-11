@@ -13,13 +13,33 @@
 .ng-enter,
 .ng-leave {
     transition-timing-function: ease;
-    transition-duration: 200ms;
+    transition-duration: 0ms;
     transition-property: opacity;
+}
+
+.ng-enter {
+    transition-property: none;
+    opacity: 0;
+}
+
+.ng-enter.ng-enter-active {
+    transition-property: opacity;
+    opacity: 1
+}
+
+.ng-leave {
+    transition-property: opacity;
+    opacity: 1
+}
+
+.ng-leave.ng-leave-active {
+    transition-property: opacity;
+    opacity: 0;
 }
 
 // Fade In/Out
 .crossFade {
-
+    transition-duration: 200ms;
 }
 
 .crossFade.ng-enter {
@@ -45,6 +65,7 @@
 // slideRight
 .slideRight {
     opacity: 1 !important;
+    transition-duration: 200ms;
 }
 
 .slideRight.ng-enter {
@@ -70,6 +91,7 @@
 // slideLeft
 .slideLeft {
     opacity: 1 !important;
+    transition-duration: 200ms;
 }
 
 .slideLeft.ng-enter {
@@ -94,7 +116,7 @@
 
 // slideDown
 .slideDown {
-
+    transition-duration: 200ms;
 }
 
 .slideDown.ng-enter {
@@ -119,7 +141,7 @@
 
 // slideUp
 .slideUp {
-
+    transition-duration: 200ms;
 }
 
 .slideUp.ng-enter {
