@@ -1,5 +1,19 @@
-<aside>
+<aside ng-controller="MenuCtrl">
+
     <ul class="off-canvas-list">
-        <li><label>Menu</label></li>
+
+        <li ng-if="!appState.user.authenticated">
+            <a ng-click="go('/login', 'crossFade'); appState.toggleMenu();">login</a>
+        </li>
+
+        <li ng-if="appState.user.authenticated">
+            <span class="username">{{appState.user.name.first}}</span>
+            <ul>
+                <li><a ng-click="go('/profile', 'crossFade'); appState.toggleMenu();">My Profile</a></li>
+                <li><a ng-click="logout(); appState.toggleMenu();">Logout</a></li>
+            </ul>
+        </li>
+
     </ul>
+
 </aside>

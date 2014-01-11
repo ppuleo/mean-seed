@@ -63,12 +63,12 @@ h1 {
     left: 0;
     height: 100%;
     width: 100%;
-    transition: all 200ms ease;
+    transition: all 100ms ease;
     transform: translate3d(0px, 0, 0);
 }
 
 .off-canvas.uncover {
-    transform: translate3d(250px, 0, 0);
+    transform: translate3d(75%, 0, 0);
 }
 
 /* partial containers */
