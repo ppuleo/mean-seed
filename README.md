@@ -3,7 +3,7 @@
 A __single page app__ seed project for building RESTful apps with node, mongo, express, and angular
 
 ## Demo
-[http://ppuleo-mean-seed.jit.su](http://mean-seed.jit.su)
+[http://mean-seed.jit.su](http://mean-seed.jit.su)
 
 ## Features
 * Built on Foundation with responsive templates
