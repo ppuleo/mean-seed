@@ -4,35 +4,27 @@
 	<!-- Content -->
 	<section class="page-content">
 
-		<!-- Profile Info -->
-		<div class="avatar"></div>
+        <div class="row profile-actions">
+        	<div class="columns small-12">
+        		<a ng-click="go('/myaccount')" class="edit-profile small button">Edit Profile</a>
+        	</div>
+        </div>
 
-			<div class="profile-card">
+        <div class="row">
 
-				<!-- Contact Info -->
-				<div class="contact-info">
-					<div class="name">{{profile.name.full}}</div>
-				</div>
+            <div class="columns medium-4">
 
-				<!-- Pristine: not added, no connections -->
-				<div ng-show="profile.pristine" class="list-btn add-person" ng-click="addFriendRequest(profile)"></div>
+            	<img alt="avatar" class="avatar" ng-src="{{user.avatar[0].url}}" />
+            </div>
 
-				<!-- Added -->
-				<div ng-show="profile.added" class="status">
-					Already added. <button class="text-btn" ng-click="removeFriend(profile)">Remove</button></div>
+            <div class="columns medium-8">
 
-				<!-- Requested -->
-				<div ng-show="profile.requested">
-					<div class="status">Added you. Accept?</div>
-					<div class="list-btn remove" ng-click="rejectFriendRequest(profile)"></div>
-					<div class="list-btn accept" ng-click="acceptFriendRequest(profile)"></div>
-				</div>
+            	<h1>{{user.name.full}}</h1>
+            	<h3 class="subheading">{{user.role}}</h3>
 
-				<!-- Pending -->
-				<div ng-show="profile.pending">
-					<div class="status">Your request is pending. <button class="text-btn" ng-click="cancelFriendRequest(profile)">Cancel</button></div>
-				</div>
-			</div>
+           	</div>
+
+        </div>
 
 	</section>
 

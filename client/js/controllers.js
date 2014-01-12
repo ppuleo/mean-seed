@@ -428,12 +428,14 @@ angular.module('myApp.controllers', [])
 /**
  * Profile Page Controller
  */
-.controller('ProfileCtrl', ['$scope', '$routeParams', 'People', '$q', function ($scope, $routeParams, People, $q) {
+.controller('ProfileCtrl', ['$scope', '$routeParams', 'People', 'appState', '$q', function ($scope, $routeParams, People, appState, $q) {
 
     'use strict';
 
     // Debug message
     if ($scope.appState.debug) { console.log('*** ProfileCtrl: Init'); }
+
+    $scope.user = appState.user;
 }])
 
 /**

@@ -2,6 +2,8 @@
 
     <ul class="off-canvas-list">
 
+        <li><a ng-click="go('/home'); appState.toggleMenu();">Home</a></li>
+
         <li ng-if="!appState.user.authenticated">
             <a ng-click="go('/login', 'crossFade'); appState.toggleMenu();">login</a>
         </li>
