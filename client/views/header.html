@@ -15,6 +15,11 @@
 
         <section class="top-bar-section">
             <ul class="right">
+                <li class="divider"></li>
+                <li>
+                    <a href="#/docs" class="">Documentation</a>
+                </li>
+                <li class="divider"></li>
                 <li ng-if="!appState.user.authenticated" class="has-form">
                     <a ng-click="go('/login', 'crossFade')" class="small button">login</a>
                 </li>

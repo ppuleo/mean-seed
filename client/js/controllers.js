@@ -245,6 +245,31 @@ angular.module('myApp.controllers', [])
     };
 }])
 
+.controller('HomeCtrl', ['$scope', '$http', function ($scope, $http) {
+
+    'use strict';
+
+    function getLatestCommit() {
+
+        $http.jsonp('https://api.github.com/repos/ppuleo/mean-seed/commits?callback=JSON_CALLBACK')
+
+            .success(function (data, status) {
+
+                $scope.commit = {
+                    sha: data.data[0].sha,
+                    link: data.data[0].html_url,
+                    date: data.data[0].commit.author.date
+                };
+            })
+
+            .error (function (data, status) {
+
+            });
+    }
+
+    getLatestCommit();
+}])
+
 /**
  * Login Page Controller
  */

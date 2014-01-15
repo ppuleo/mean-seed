@@ -82,7 +82,8 @@ angular.module('myApp', [
         })
         .when('/home', {
             templateUrl: 'pages/home.html',
-            access: 'public'
+            access: 'public',
+            controller: 'HomeCtrl'
         })
         .when('/login', {
             templateUrl: 'pages/login.html',
@@ -130,6 +131,10 @@ angular.module('myApp', [
         })
         .when('/tos', {
             templateUrl: 'pages/tos.html',
+            access: 'public'
+        })
+        .when('/docs', {
+            templateUrl: 'pages/docs.html',
             access: 'public'
         })
         .otherwise({ redirectTo: '/home'});

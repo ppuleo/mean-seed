@@ -28,6 +28,7 @@
     <!-- Menu -->
     <div ng-include="'views/menu.html'" class="off-canvas-menu"></div>
 
+
     <!-- Off-canvas wrapper -->
     <div class="off-canvas" ng-class="{uncover: appState.menu.isVisible==true}">
 
@@ -38,6 +39,9 @@
         <div class="pages-container">
             <div ng-view class="page-wrapper" ng-class="pageAnimationClass"></div>
         </div>
+
+        <!-- Footer -->
+        <div ng-include="'views/footer.html'"></div>
 
     </div>
 

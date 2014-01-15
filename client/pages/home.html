@@ -10,17 +10,54 @@
                     <h2>A starter project for building RESTful applications with mongoDB, Express, AngularJS, and node.js. Built on <a href="http://foundation.zurb.com" target="_blank">Foundation.</a></h2>
                 </div>
             </div>
+            <div class="row">
+                <div class="medium-6 large-5 columns">
+                    <a target="_blank" href="https://github.com/ppuleo/mean-seed/archive/master.zip" class="large button hide-for-small">Download MEAN Seed v0.1.x</a>
+                </div>
+            </div>
+            <div class="hide-for-small hero-image">
+                <img alt="mean-seed-mascot" src="/assets/img/mean-seed-hero-new.svg" />
+            </div>
 
+        </section>
+
+        <section class="homepage-gitinfo hide-for-small">
+            <div class="row">
+                <div class="columns small-12">
+                    Lastest Update on Github &nbsp;&nbsp;<a class="commit" ng-href="{{commit.link}}" target="_blank">{{commit.date | date:'MMM dd, yyyy @ h:mma'}} | commit {{commit.sha}} &raquo;</a>
+                </div>
+            </div>
         </section>
 
         <section class="homepage-content">
 
             <div class="row">
 
-                <div class="columns small-10 small-offset-1">
-                    <p>This is the home page. Unauthenticated users are directed here by default.</p>
+                <div class="columns small-12">
+                    <h2>A fast way to get started building MEAN.</h2>
+                    <h4 class="subheader">Built-in authentication, account management, navigation, and responsive views.</h4>
                 </div>
 
+            </div>
+
+            <div class="row">
+                <div class="columns medium-4 large-4">
+                    <i class="fi-download big-icon"></i>
+                    <h4>Download and Update</h4>
+                    <p>Get the seed project as a <a href="https://github.com/ppuleo/mean-seed/archive/master.zip">.zip file</a> or clone it from the <a href="https://github.com/ppuleo/mean-seed" target="_blank">git repo.</a></p>
+                    <p>The MEAN Seed is easy to update. We use <a href="http://bower.io/" target="_blank">Bower</a> to manage client app dependencies and <a href="https://npmjs.org" target="_blank">npm</a> for server and build system dependencies.</p>
+                </div>
+                <div class="columns medium-4 large-4">
+                    <i class="fi-widget big-icon"></i>
+                    <h4>Configure</h4>
+                    <p>Add your configurations for a few simple options then you're free to add content and styling or dig into the client and server apps and hack away.</p>
+                    <p><a ng-click="go('/docs')">Read the configuration docs</a> for detailed instructions.</p>
+                </div>
+                <div class="columns medium-4 large-4">
+                    <i class="fi-cloud big-icon"></i>
+                    <h4>Develop and Build</h4>
+                    <p>The MEAN Seed simplifies local development with a custom batch script that updates dependencies, starts a local mongoDB instance, and launches a node server. Plus, we use <a href="http://gruntjs.com/" target="_blank">Grunt</a> for autoprefixing, SASS compilation, and distribution builds.</p>
+                </div>
             </div>
 
         </section>
