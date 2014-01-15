@@ -15,7 +15,7 @@ var personSchema = new Schema({
     confirmed: { type: Boolean, default: false }, // User has confirmed ownership of email address
     role: { type: String, default: 'user' }, // Access level: user|pro|admin
     remember: { type: Boolean, default: false }, // Remember this user using a cookie to bypass login
-    avatar: [{}], // Array of avatars of mixed-type
+    avatar: { type: Array, default: [{ url: 'assets/img/default-avatar.svg'}] }, // Array of avatars of mixed-type
     language: { type: String, default: 'English US' }, // User language
     name: {
         first: String, // First Name

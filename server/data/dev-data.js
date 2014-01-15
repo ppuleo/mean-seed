@@ -21,8 +21,7 @@ module.exports = function () {
             'name': {
                 'first': 'Jen',
                 'last': 'Barber'
-            },
-            'avatar': []
+            }
         },
         {
             'confirmed': true,
@@ -34,8 +33,7 @@ module.exports = function () {
             'name': {
                 'first': 'Maurice',
                 'last': 'Moss'
-            },
-            'avatar': []
+            }
         },
         {
             'confirmed': true,
@@ -47,8 +45,7 @@ module.exports = function () {
             'name': {
                 'first': 'Roy',
                 'last': 'Trenneman'
-            },
-            'avatar': []
+            }
         }
     ];
 
