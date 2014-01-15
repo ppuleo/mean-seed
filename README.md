@@ -42,8 +42,11 @@ The MEAN seed project needs a few configuration options set before it will run. 
 ### Testing Data
 To expedite testing, the MEAN Seed includes some test user data that can be populated each time the app loads in the development environment. You can customize this data in the /server/data/dev-data.js file.
 
+### Dependencies
+The MEAN Seed uses npm and bower to manage dependencies. To install and update server application and build system dependencies run `npm install` from the project root. To install and update the client application dependencie run `bower update` from the project root. If you'd like to automatically update dependencies when the application starts in the dev environment, uncomment the npm/bower lines in startdev.sh.
+
 ### Start the Dev Environment
-The MEAN seed application is self-contained. The REST service and the client app are both run from a simple node server. In local development, the node server listens on localhost:9000. To start the application in a local dev environment, simply run the command:
+The MEAN Seed application is self-contained. The REST service and the client app are both run from a simple node server. In local development, the node server listens on localhost:9000. To start the application in a local dev environment, simply run the command:
 
     ./startdev.sh
 
