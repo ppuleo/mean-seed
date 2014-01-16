@@ -32,11 +32,15 @@ angular.module('myApp.services', [])
     // Debugging messages
     this.debug = false;
 
-    this.platform = {
-        ios: function () {
-            return (/(iPad|iPhone|iPod)/g).test(navigator.userAgent);
-        }
-    };
+    // this.platform = {
+    //     ios: function () {
+    //         return (/(iPad|iPhone|iPod)/g).test(navigator.userAgent);
+    //     }
+    // };
+
+    this.touchDevice = (function () {
+        return 'ontouchstart' in window || 'onmsgesturechange' in window;
+    })();
 
     // System Messages
     this.message = {

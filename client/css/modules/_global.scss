@@ -5,17 +5,21 @@ html {
     -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    //overflow: hidden;
+    height: 99.9%;
+    background-color: #333;
+}
+
+html.locked {
     overflow: hidden;
-    height: 100%;
-    background-color: #FFFFFF;
 }
 
 body {
     font-family: "Open Sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100%;
-    user-select: none;
+    height: 99.9%;
+    overflow-x: hidden;
 }
 
 div,
@@ -51,14 +55,14 @@ table {
 
 /* Headings */
 h1 {
-    margin: 1rem 0;
+    margin: .5rem 0;
     width: 100%;
     font-weight: 300;
     font-family: "Open Sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
 }
 
 .off-canvas {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     height: 100%;
@@ -75,9 +79,9 @@ h1 {
 .pages-container {
     height: 100%;
     width: 100%;
-    background-color: #FFF;
     position: relative;
     transform: translate3d(0,0,0);
+    background-color: #FFF;
 }
 
 .page-wrapper {
@@ -86,11 +90,18 @@ h1 {
     left: 0;
     height: 100%;
     width: 100%;
-    overflow-y: auto;
     -webkit-backface-visibility: hidden;
     perspective: 1000;
 }
 
-.ios .page-wrapper {
-    overflow-y: visible;
+@media #{$medium-up} {
+
+    h1 {
+        margin: 1rem 0;
+    }
+
+    .page-wrapper {
+        padding-bottom: 2rem;
+        overflow-y: auto;
+    }
 }

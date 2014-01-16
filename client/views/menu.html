@@ -5,7 +5,7 @@
         <li><a ng-click="go('/home'); appState.toggleMenu();">Home</a></li>
 
         <li ng-if="!appState.user.authenticated">
-            <a ng-click="go('/login', 'crossFade'); appState.toggleMenu();">login</a>
+            <a ng-click="go('/login', 'crossFade'); appState.toggleMenu();">Login</a>
         </li>
 
         <li ng-if="appState.user.authenticated">
@@ -14,6 +14,9 @@
                 <li><a ng-click="go('/profile', 'crossFade'); appState.toggleMenu();">My Profile</a></li>
                 <li><a ng-click="logout(); appState.toggleMenu();">Logout</a></li>
             </ul>
+        </li>
+
+        <li><hr/>Code licensed under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a><br/>Built by <a href="http://phillippuleo.com">Phil Puleo</a>
         </li>
 
     </ul>

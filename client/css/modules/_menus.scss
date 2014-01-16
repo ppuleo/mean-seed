@@ -2,10 +2,30 @@
     height: 100%;
     width: 100%;
     background-color: #333;
+    color: #555;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
 }
 
 .off-canvas-menu ul {
     list-style: none;
+}
+
+.off-canvas-menu ul li {
+    padding: .6667rem;
+}
+
+.off-canvas-menu hr {
+    border-color: #444444;
+    margin: 5px 0 10px 0
+}
+
+.off-canvas-menu ul.off-canvas-list li a {
+    border: none;
+    display: inline-block;
+    padding: 0;
 }
 
 .off-canvas-menu .username {

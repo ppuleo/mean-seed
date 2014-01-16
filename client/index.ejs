@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" ng-controller="AppCtrl" ng-app="myApp">
+<html lang="en" ng-controller="AppCtrl" ng-app="myApp" ng-class="{locked: appState.menu.isVisible}">
 <head>
     <meta charset="utf-8">
     <title>MEAN Seed App</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
@@ -20,7 +20,7 @@
     <script>window.myApp={user:<%-JSON.stringify(user)%>};</script>
 
 </head>
-<body ng-class="{ios: appState.platform.ios()==true}">
+<body ng-class="{touch: appState.touchDevice}">
 
     <!-- System Messages -->
     <div ng-include="'views/messages.html'"></div>
@@ -28,9 +28,8 @@
     <!-- Menu -->
     <div ng-include="'views/menu.html'" class="off-canvas-menu"></div>
 
-
     <!-- Off-canvas wrapper -->
-    <div class="off-canvas" ng-class="{uncover: appState.menu.isVisible==true}">
+    <div class="off-canvas" ng-class="{uncover: appState.menu.isVisible}">
 
         <!-- Header -->
         <div ng-include="'views/header.html'"></div>
@@ -40,10 +39,10 @@
             <div ng-view class="page-wrapper" ng-class="pageAnimationClass"></div>
         </div>
 
-        <!-- Footer -->
-        <div ng-include="'views/footer.html'"></div>
-
     </div>
+
+    <!-- Footer -->
+    <div ng-include="'views/footer.html'" class="page-footer hide-for-small"></div>
 
     <!-- Vendor Libraries -->
     <!-- build:js js/vendor.js -->

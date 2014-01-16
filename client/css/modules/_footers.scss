@@ -1,10 +1,19 @@
 .page-footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     background-color: #222;
     width: 100%;
     color: #555;
     padding: 1rem 0;
+
+}
+
+.page-footer p {
     font-size: .75rem;
+    margin: 0 0 .125rem;
+}
+
+.touch .page-footer {
+    // position: relative;
 }
