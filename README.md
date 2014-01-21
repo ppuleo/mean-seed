@@ -3,7 +3,8 @@
 A __single page app__ seed project for building RESTful apps with node, mongo, express, and angular
 
 ## Demo
-[http://mean-seed.jit.su](http://mean-seed.jit.su)
+[![Mean Seed preview] (client/assets/img/site-thumbnail.png)](http://mean-seed.jit.su)
+[![Mean Seed preview] (client/assets/img/site-thumbnail2.png)](http://mean-seed.jit.su/#/signup)
 
 ## Features
 * Built on Foundation with responsive templates
