@@ -12,7 +12,7 @@ A __single page app__ seed project for building RESTful apps with node, mongo, e
 * User account signup flow with email confirmation
 * Password reset flow using one-time email tokens
 * Simple admin interface for account management
-* Authentication with cookie-based login sessions, 'remember me' option for long sessions
+* Authentication with sessionStore sessions, 'remember me' option for long sessions
 * Expandable authorization system using page and route-level role checking
 * Easy integration with hosted mongoDB services
 * Grunt tasks to build and test distribution versions
