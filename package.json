@@ -2,6 +2,7 @@
   "name": "mean-seed",
   "subdomain": "mean-seed",
   "description": "A seed project for building RESTful apps with node, mongo, express, and angular",
+  "main": "node server/server.js",
   "scripts": {
     "start": "node server/server.js"
   },
