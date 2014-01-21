@@ -61,9 +61,8 @@ require('./app/routes/people')(app, auth, mailer);
 // Add more routes here...
 
 // Init the app
-var port = 9000;
-app.listen(port);
-console.log('App started on port ' + port + '. Waiting...');
+app.listen(envConfig.port);
+console.log('App started on port ' + envConfig.port + '. Waiting...');
 
 // Expose App
 module.exports = app;
