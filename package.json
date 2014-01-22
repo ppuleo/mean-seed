@@ -32,7 +32,7 @@
     "grunt-autoprefixer": "latest",
     "grunt-contrib-watch": "latest",
     "matchdep": "latest",
-    "grunt-nodemon": "latest",
+    "grunt-nodemon": "0.1.2",
     "grunt-concurrent": "latest",
     "grunt-contrib-sass": "latest",
     "grunt-contrib-clean": "latest",
