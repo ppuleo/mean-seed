@@ -28,9 +28,11 @@ module.exports = {
         clientRoot: rootPath + '/client',
         app: {
             name: 'MEAN Seed - Development'
-        }
+        },
+        port: process.env.NODE_ENV.PORT || 9000
     },
     staging: {
+        name: 'staging',
         db: {
             url: '', // Your staging db connection string
             options: {} // Your staging db options
@@ -44,9 +46,11 @@ module.exports = {
         clientRoot: rootPath + '/client',
         app: {
             name: 'MEAN Seed - Staging'
-        }
+        },
+        port: process.env.NODE_ENV.PORT || 80
     },
     production: {
+        name: 'production',
         db: {
             url: '', // Your production db connection string
             options: {} // Your production db options
@@ -60,7 +64,8 @@ module.exports = {
         clientRoot: rootPath + '/client',
         app: {
             name: 'MEAN Seed - Production'
-        }
+        },
+        port: process.env.NODE_ENV.PORT || 80
     }
 
 };
