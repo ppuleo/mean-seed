@@ -5,11 +5,11 @@ angular.module('myApp.controllers', [])
 /**
  * Admin Page Controller
  */
-.controller('AdminCtrl', ['$scope', 'People', function ($scope, People) {
+.controller('AdminCtrl', ['$scope', '$log', 'People', function ($scope, $log, People) {
 
     'use strict';
 
-    if ($scope.appState.debug) { console.log('*** AdminCtrl: Init ***'); }
+    if ($scope.appState.debug) { $log.info('AdminCtrl: Init'); }
 
     // Populate the list of people
     People.query(
@@ -46,7 +46,7 @@ angular.module('myApp.controllers', [])
 /**
  * Application Controller
  */
-.controller('AppCtrl', ['$scope', '$route', '$timeout', '$window', '$q', '$http', 'appState', 'People', function ($scope, $route, $timeout, $window, $q, $http, appState, People) {
+.controller('AppCtrl', ['$scope', '$log', '$route', '$timeout', '$window', '$q', '$http', 'appState', 'People', function ($scope, $log, $route, $timeout, $window, $q, $http, appState, People) {
 
     'use strict';
 
@@ -67,7 +67,7 @@ angular.module('myApp.controllers', [])
             $scope.appState.debug = true;
         }
 
-        if ($scope.appState.debug) { console.log('*** AppCtrl: Init ***'); }
+        if ($scope.appState.debug) { $log.info('AppCtrl: Init'); }
 
         // Add the user object to appState if it's not there
         if (typeof(appState.user) === 'undefined') {
@@ -164,11 +164,11 @@ angular.module('myApp.controllers', [])
 /**
  * Confirm Account Page Controller
  */
-.controller('ConfirmCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+.controller('ConfirmCtrl', ['$scope', '$log', '$http', '$routeParams', function ($scope, $log, $http, $routeParams) {
 
     'use strict';
 
-    if ($scope.appState.debug) { console.log('*** ConfirmCtrl: Init ***'); }
+    if ($scope.appState.debug) { $log.info('ConfirmCtrl: Init'); }
 
     var confirmPath = '/api/confirm/' + $routeParams.id;
     $scope.confirmSuccess = null;
@@ -199,11 +199,11 @@ angular.module('myApp.controllers', [])
 /**
  * Forgot Password Page Controller
  */
-.controller('ForgotCtrl', ['$scope', '$http', 'appState', function ($scope, $http, appState) {
+.controller('ForgotCtrl', ['$scope', '$log', '$http', 'appState', function ($scope, $log, $http, appState) {
 
     'use strict';
 
-    if ($scope.appState.debug) { console.log('*** ForgotCtrl: Init ***'); }
+    if ($scope.appState.debug) { $log.info('ForgotCtrl: Init'); }
 
     $scope.userAccount = {}; // Set up our model
     $scope.resetSuccess = false;
@@ -273,11 +273,11 @@ angular.module('myApp.controllers', [])
 /**
  * Login Page Controller
  */
-.controller('LoginCtrl', ['$scope', '$http', '$window', '$sce', function ($scope, $http, $window, $sce) {
+.controller('LoginCtrl', ['$scope', '$log', '$http', '$window', '$sce', function ($scope, $log, $http, $window, $sce) {
 
     'use strict';
 
-    if ($scope.appState.debug) { console.log('*** LoginCtrl: Init ***'); }
+    if ($scope.appState.debug) { $log.info('LoginCtrl: Init'); }
 
     $scope.login = function () {
 
@@ -328,14 +328,14 @@ angular.module('myApp.controllers', [])
 /**
  * Main Page Controller
  */
-.controller('MainCtrl', ['$scope', function ($scope) {
+.controller('MainCtrl', ['$scope', '$log', function ($scope, $log) {
 
     'use strict';
 
-    if ($scope.appState.debug) { console.log('*** MainCtrl: Init ***'); }
+    if ($scope.appState.debug) { $log.info('MainCtrl: Init'); }
 
     $scope.$on('viewContentLoaded', function () {
-        console.log('view loaded');
+        $log.info('view loaded');
     });
 }])
 
@@ -364,11 +364,11 @@ angular.module('myApp.controllers', [])
 /**
  * My Account Page Controller
  */
-.controller('MyaccountCtrl', ['$scope', '$routeParams', '$location', 'People', 'appState', function ($scope, $routeParams, $location, People, appState) {
+.controller('MyaccountCtrl', ['$scope', '$log', '$routeParams', '$location', 'People', 'appState', function ($scope, $log, $routeParams, $location, People, appState) {
 
     'use strict';
 
-    if ($scope.appState.debug) { console.log('*** MyaccountCtrl: Init ***'); }
+    if ($scope.appState.debug) { $log.info('MyaccountCtrl: Init'); }
 
     // Language options
     $scope.languageOptions = ['English US', 'Spanish'];
@@ -453,12 +453,12 @@ angular.module('myApp.controllers', [])
 /**
  * Profile Page Controller
  */
-.controller('ProfileCtrl', ['$scope', '$routeParams', 'People', 'appState', '$q', function ($scope, $routeParams, People, appState, $q) {
+.controller('ProfileCtrl', ['$scope', '$log', '$routeParams', 'People', 'appState', '$q', function ($scope, $log, $routeParams, People, appState, $q) {
 
     'use strict';
 
     // Debug message
-    if ($scope.appState.debug) { console.log('*** ProfileCtrl: Init'); }
+    if ($scope.appState.debug) { $log.info('ProfileCtrl: Init'); }
 
     $scope.user = appState.user;
 }])
@@ -466,11 +466,11 @@ angular.module('myApp.controllers', [])
 /**
  * Resend Confirmation Email Page Controller
  */
-.controller('ResendCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+.controller('ResendCtrl', ['$scope', '$log', '$http', '$routeParams', function ($scope, $log, $http, $routeParams) {
 
     'use strict';
 
-    if ($scope.appState.debug) { console.log('*** ResendCtrl: Init ***'); }
+    if ($scope.appState.debug) { $log.info('ResendCtrl: Init'); }
 
     $scope.appState.message.active = false;
 
@@ -502,7 +502,7 @@ angular.module('myApp.controllers', [])
 /**
  * Reset Password Page Controller
  */
-.controller('ResetCtrl', ['$scope', '$http', 'appState', function ($scope, $http, appState) {
+.controller('ResetCtrl', ['$scope', '$log', '$http', 'appState', function ($scope, $log, $http, appState) {
 
     'use strict';
 
@@ -569,11 +569,11 @@ angular.module('myApp.controllers', [])
 /**
  * Settings Page Controller
  */
-.controller('SettingsCtrl', ['$scope', 'People', '$http', '$window', function ($scope, People, $http, $window) {
+.controller('SettingsCtrl', ['$scope', '$log', 'People', '$http', '$window', function ($scope, $log, People, $http, $window) {
 
     'use strict';
 
-    if ($scope.appState.debug) { console.log('*** SettingsCtrl: Init ***'); }
+    if ($scope.appState.debug) { $log.info('SettingsCtrl: Init'); }
 
 
 }])
@@ -581,11 +581,11 @@ angular.module('myApp.controllers', [])
 /**
  * Signup Page Controller
  */
-.controller('SignupCtrl', ['$scope', 'People', 'appState', function ($scope, People, appState) {
+.controller('SignupCtrl', ['$scope', '$log', 'People', 'appState', function ($scope, $log, People, appState) {
 
     'use strict';
 
-    if ($scope.appState.debug) { console.log('*** SignupCtrl: Init ***'); }
+    if ($scope.appState.debug) { $log.info('SignupCtrl: Init'); }
 
     $scope.newAccount = {};
     $scope.focusField = '';
